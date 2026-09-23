@@ -69,6 +69,7 @@ elmo-hikes/
 
 - **Aaron L** - BCIT CST Student, fun fact: I play a lot of chess
 - **Dylan Pratt** - BCIT CST Student with a passion video games and user-friendly applications. Fun fact: Loves winning.
+- **Gurveen** - BCIT CST Student, new to coding.
 - **Teammate Name** - BCIT CST Student, Frontend enthusiast with a knack for creative design. Fun fact: Has a collection of over 50 houseplants.
 - Micae Pham - BCIT CST Student who likes escape rooms but has never done one. Fun fact: I volunteered as a scare actor for a haunted house last year.
 
