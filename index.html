@@ -14,6 +14,7 @@
 </head>
 
 <body>
+    
 
     <!------------------------------>
     <!-- Your HTML Layout go here -->
@@ -46,5 +47,26 @@
     <script type="module" src="./src/main.js"></script>
 
 </body>
+<nav class="navbar fixed-bottom bg-primary border-top">
+        <div class="container-fluid justify-content-around">
+            <a class="nav-link text-center active" aria-current="page" href="#">
+                <i class="bi bi-house d-block fs-5"></i><small>Home</small>
+            </a>
+    
+            <a class="nav-link text-center" href="#">
+                <i class="bi bi-search d-block fs-5"></i><small>Search</small>
+            </a>
+    
+            <div class="dropdown">
+                <a class="nav-link text-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="bi bi-person d-block fs-5"></i><small>Profile</small>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a class="dropdown-item" href="#">My Account</a></li>
+                    <li><a class="dropdown-item" href="#">My Hikes</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
 </html>
