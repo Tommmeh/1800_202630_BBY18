@@ -2,8 +2,8 @@
 <html lang="en">
 
 <head>
-    <title>My BCIT Project</title>
-    <meta name="comp1800 template" content="My 1800 App">
+    <title>Phsh Game</title>
+    <meta name="comp1800 template" content="Phsh Game">
 
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -19,14 +19,134 @@
     <!-- Your HTML Layout go here -->
     <!------------------------------>
     <!-- Stuff for body goes here -->
+    <div class="px-3 py-2 fg-white bg-black border-bottom" data-bs-theme="dark">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center lg:justify-content-start"><a href="/"
+                    class="d-flex align-items-center my-2 lg:my-0 lg:me-auto fg-body text-decoration-none"><svg
+                        class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
+                        <use href="#bootstrap"></use>
+                    </svg></a>
+                <ul class="nav col-12 lg:col-auto my-2 justify-content-center md:my-0">
+                    <li><a href="#" class="nav-link fg-secondary flex-column"><svg class="bi d-block mx-auto" width="24"
+                                height="24" aria-hidden="true">
+                                <use href="#home"></use>
+                            </svg>Home</a></li>
+                    <li><a href="#" class="nav-link fg-white flex-column"><svg class="bi d-block mx-auto" width="24"
+                                height="24" aria-hidden="true">
+                                <use href="#speedometer2"></use>
+                            </svg>Games</a></li>
+                    <li><a href="#" class="nav-link fg-white flex-column"><svg class="bi d-block mx-auto" width="24"
+                                height="24" aria-hidden="true">
+                                <use href="#table"></use>
+                            </svg>Learn</a></li>
+                    <li><a href="#" class="nav-link fg-white flex-column"><svg class="bi d-block mx-auto" width="24"
+                                height="24" aria-hidden="true">
+                                <use href="#grid"></use>
+                            </svg>Settings</a></li>
+                    <li><a href="#" class="nav-link fg-white flex-column"><svg class="bi d-block mx-auto" width="24"
+                                height="24" aria-hidden="true">
+                                <use href="#people-circle"></use>
+                            </svg>Profile</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
+    <div class="px-4 py-5 my-5 text-center">
+        <h1 class="fs-4xl fw-bold fg-emphasis-inverse">Phsh Game</h1>
+        <div class="lg:col-6 mx-auto">
+            <p class="fs-lg fw-light mb-4">A mobile-friendly web application to help young adults to identify phishing schemes by developing fun educational mini games.</p>
+            <div class="d-grid gap-2 sm:d-flex sm:justify-content-center"><button type="button"
+                    class="btn-solid theme-primary btn-lg px-4">Log-In</button><button type="button"
+                    class="btn-outline theme-secondary btn-lg px-4">Sign-Up</button></div>
+        </div>
+    </div>
+
+    <div class="container px-4 py-5" id="icon-grid">
+        <h2 class="pb-2 border-bottom">Phishing statistics</h2>
+        <div class="row row-cols-1 sm:row-cols-2 md:row-cols-3 lg:row-cols-4 g-4 py-5">
+            <div class="col d-flex align-items-start"><svg class="bi fg-2 flex-shrink-0 me-3" width="1.75em"
+                    height="1.75em" aria-hidden="true">
+                    <use href="#bootstrap"></use>
+                </svg>
+                <div>
+                    <h3 class="fw-bold mb-0 fs-xl">Daily Emails</h3>
+                    <p>Approximately 3.4 billion phishing emails circulate daily (around 39,000 per second).</p>
+                </div>
+            </div>
+            <div class="col d-flex align-items-start"><svg class="bi fg-2 flex-shrink-0 me-3" width="1.75em"
+                    height="1.75em" aria-hidden="true">
+                    <use href="#cpu-fill"></use>
+                </svg>
+                <div>
+                    <h3 class="fw-bold mb-0 fs-xl">Attack frequency</h3>
+                    <p>Millions of phishing attempts and unique sites are logged quarterly by security researchers and organizations like the Anti-Phishing Working Group.</p>
+                </div>
+            </div>
+            <div class="col d-flex align-items-start"><svg class="bi fg-2 flex-shrink-0 me-3" width="1.75em"
+                    height="1.75em" aria-hidden="true">
+                    <use href="#calendar3"></use>
+                </svg>
+                <div>
+                    <h3 class="fw-bold mb-0 fs-xl">Breach costs</h3>
+                    <p>Phishing-related data breaches average $4.88 million per incident.</p>
+                </div>
+            </div>
+            <div class="col d-flex align-items-start"><svg class="bi fg-2 flex-shrink-0 me-3" width="1.75em"
+                    height="1.75em" aria-hidden="true">
+                    <use href="#home"></use>
+                </svg>
+                <div>
+                    <h3 class="fw-bold mb-0 fs-xl">AI integration</h3>
+                    <p>Over 80% of recent phishing emails leverage generative AI tools to craft hyper-personalized messages, driving higher click-through rates.</p>
+                </div>
+            </div>
+            <div class="col d-flex align-items-start"><svg class="bi fg-2 flex-shrink-0 me-3" width="1.75em"
+                    height="1.75em" aria-hidden="true">
+                    <use href="#speedometer2"></use>
+                </svg>
+                <div>
+                    <h3 class="fw-bold mb-0 fs-xl">Time to Contain</h3>
+                    <p>It takes an average of 254 days to identify and contain a breach that originates from a phishing vector.</p>
+                </div>
+            </div>
+            <div class="col d-flex align-items-start"><svg class="bi fg-2 flex-shrink-0 me-3" width="1.75em"
+                    height="1.75em" aria-hidden="true">
+                    <use href="#toggles2"></use>
+                </svg>
+                <div>
+                    <h3 class="fw-bold mb-0 fs-xl">Compromised accounts</h3>
+                    <p>Nearly 58% of phishing emails are now sent from legitimate, compromised email accounts rather than obvious spam relays.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+            <div class="md:col-4 d-flex align-items-center"><a href="/"
+                    class="mb-3 me-2 md:mb-0 fg-2 text-decoration-none lh-1" aria-label="Bootstrap"><svg class="bi"
+                        width="30" height="24" aria-hidden="true">
+                        <use href="#bootstrap"></use>
+                    </svg></a><span class="mb-3 md:mb-0 fg-2">© 2026 Company, Inc</span></div>
+            <ul class="nav md:col-4 justify-content-end list-unstyled d-flex">
+                <li class="ms-3"><a class="fg-2" href="#" aria-label="Instagram"><svg class="bi" width="24" height="24"
+                            aria-hidden="true">
+                            <use href="#instagram"></use>
+                        </svg></a></li>
+                <li class="ms-3"><a class="fg-2" href="#" aria-label="Facebook"><svg class="bi" width="24" height="24">
+                            <use href="#facebook"></use>
+                        </svg></a></li>
+            </ul>
+        </footer>
+    </div>
 
     <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->
     <!---------------------------------------------->
 
     <!-- Link to scripts of your own -->
-    <!-- <script type="module" src="./src/main.js"></script> -->
+    <script type="module" src="./src/main.js"></script>
 
 </body>
 
