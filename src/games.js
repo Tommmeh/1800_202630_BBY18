@@ -7,9 +7,10 @@ const games = [
         image: "./images/hike1.jpg"
     },
     {
-        name: "Game 2",
-        description: "Description",
-        image: "./images/hike2.jpg"
+        name: "This or that",
+        description: "Two buttons. One target link. Click the correct link, the wrong one contains common phishing patterns.",
+        image: "./images/hike2.jpg",
+        page: "thisorthat.html"
     },
     {
         name: "Game 3",
@@ -50,6 +51,10 @@ games.forEach(function (game) {
     newCard.querySelector(".card-title").textContent = game.name;
     newCard.querySelector(".card-text").textContent = game.description;
     newCard.querySelector(".game-image").src = game.image;
+
+    if (game.page) {
+        newCard.querySelector("a").href = game.page;
+        }
 
     // Add the card to the page
     gamesContainer.appendChild(newCard);
