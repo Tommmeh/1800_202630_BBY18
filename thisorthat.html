@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Spot the Real Link | Phsh Game</title>
+</head>
+ 
+<body class="bg-light">
+ 
+    <header class="bg-dark text-white py-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <h1 class="h4 mb-0">Phsh Game</h1>
+            <a href="gameslist.html" class="btn btn-outline-light btn-sm">Back to Games</a>
+        </div>
+    </header>
+ 
+    <main class="container py-5 text-center">
+        <h2>Spot the Real Link</h2>
+        <p class="text-muted">Pick the safe one.</p>
+ 
+        <p id="round-text" class="fw-bold">Round 1</p>
+        <p id="score-text">Score: 0</p>
+ 
+        <!-- The two link choices go here -->
+        <div class="row g-3 justify-content-center my-4">
+            <div class="col-md-5">
+                <button id="left-btn" class="btn btn-outline-primary w-100 p-4 fs-5"></button>
+            </div>
+            <div class="col-md-5">
+                <button id="right-btn" class="btn btn-outline-primary w-100 p-4 fs-5"></button>
+            </div>
+        </div>
+ 
+        <p id="feedback" class="fs-5" aria-live="polite"></p>
+ 
+        <button id="next-btn" class="btn btn-primary" hidden>Next</button>
+    </main>
+ 
+    <script type="module" src="./src/main.js"></script>
+    <script type="module" src="./src/thisorthat.js"></script>
+</body>
+ 
+</html>
+ 
