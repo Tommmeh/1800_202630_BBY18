@@ -1,62 +1,29 @@
+import { db } from "./firebase.js";
+import { collection, getDocs } from "firebase/firestore";
 
-// List of games
-const games = [
-    {
-        name: "Game 1",
-        description: "Description",
-        image: "./images/hike1.jpg"
-    },
-    {
-        name: "This or that",
-        description: "Two buttons. One target link. Click the correct link, the wrong one contains common phishing patterns.",
-        image: "./images/hike2.jpg",
-        page: "thisorthat.html"
-    },
-    {
-        name: "Game 3",
-        description: "Description",
-        image: "./images/hike3.jpg"
-    },
-    {
-    name: "Game 4",
-    description: "Description",
-    image: "./images/hike1.jpg"
-    },
-    {
-
-    name: "Game 5",
-    description: "Description",
-    image: "./images/hike2.jpg"
-    },
-    {
-    name: "Game 6",
-    description: "Description",
-    image: "./images/hike3.jpg"
-    }
-];
-
-// Get the game card template
 const gameTemplate = document.getElementById("gameCardTemplate");
-
-// Get the place where the cards will appear
 const gamesContainer = document.getElementById("games-go-here");
 
-// Display each game
-games.forEach(function (game) {
+async function displayGames() {
+    // Get every document in the "games" collection
+    const snapshot = await getDocs(collection(db, "games"));
 
-    // Make a copy of the card template
-    const newCard = gameTemplate.content.cloneNode(true);
+    // Display each game
+    snapshot.forEach(function (doc) {
+        const game = doc.data();
 
-    // Add the game information
-    newCard.querySelector(".card-title").textContent = game.name;
-    newCard.querySelector(".card-text").textContent = game.description;
-    newCard.querySelector(".game-image").src = game.image;
+        const newCard = gameTemplate.content.cloneNode(true);
+        newCard.querySelector(".card-title").textContent = game.Name;
+        newCard.querySelector(".card-text").textContent = game.Description;
+        newCard.querySelector(".game-image").src = game.ImageURL;
+        newCard.querySelector("small").textContent = game.Difficulty;
 
-    if (game.page) {
-        newCard.querySelector("a").href = game.page;
+        if (game.Page) {
+            newCard.querySelector("a").href = game.Page;
         }
 
-    // Add the card to the page
-    gamesContainer.appendChild(newCard);
+        gamesContainer.appendChild(newCard);
+    });
+}
 
-});
+displayGames();
