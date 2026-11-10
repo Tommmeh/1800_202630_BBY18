@@ -6,13 +6,13 @@ function addHikeData() {
     const hikesRef = collection(db, "hikes");
     console.log("Adding sample hike data...");
     addDoc(hikesRef, {
-        code: "BBY01", name: "Burnaby Lake Park Trail", city: "Burnaby",
+        code: "BBY01", name: "Quest 1", city: "Burnaby",
         level: "easy", details: "A lovely place for a lunch walk.", length: 10,
         hike_time: 60, lat: 49.2467097082573, lng: -122.9187029619698,
         last_updated: serverTimestamp()
     });
     addDoc(hikesRef, {
-        code: "AM01", name: "Buntzen Lake Trail", city: "Anmore",
+        code: "AM01", name: "Lake Trail", city: "Anmore",
         level: "moderate", details: "Close to town, and relaxing.", length: 10.5,
         hike_time: 80, lat: 49.3399431028579, lng: -122.85908496766939,
         last_updated: serverTimestamp()
