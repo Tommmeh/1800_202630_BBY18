@@ -18,6 +18,38 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+globalThis.PosX = 0
+globalThis.PosY = 0
+
+setInterval(fishInterval, 5000);
+
+function fishInterval() {
+  const prevPosX = PosX
+  const prevPosY = PosY
+  PosX = getRandomInt(0, 92)
+  PosY = getRandomInt(0, 92)
+
+  document.getElementById("fish").animate(
+    [
+      { // from parameters
+        left: prevPosX + "%",   // you can set this dynamically
+        top: prevPosY + "%"    // you can set this dynamically
+      },
+      { // to parameters
+        left: PosX + "%", // you can set this dynamically
+        top: PosY + "%"  // you can set this dynamically
+      }
+    ],
+    {
+      duration: 5000,
+      iterations: Infinity
+    }
+  );
+
+}
+
+
+
 // Add a Log out button to the nav (only when logged in)
 onAuthStateChanged(auth, (user) => {
   const navList = document.querySelector(".nav");

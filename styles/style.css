@@ -1,20 +1,14 @@
-@keyframes swimAnim {
-    5%  { left:0px; top:0px; }
-    100%  { left:90%; top:0px; }
-}
-
 .tank{
-    width:100%;
+    width:90%;
+    margin-left:5%;
+    margin-top:5%;
     background-color:aqua;
     height:800px;
-    margin:60px;
-    padding:120px;
 }
-.fish{
-    width:120px;
-    height:80px;
-    background-color:orange;
+#fish{
+    width:10%;
+    height:7%;
     position: relative;
-    animation: swimAnim 10s infinite
+    background-color:orange;
 
 }
