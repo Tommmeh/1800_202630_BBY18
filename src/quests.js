@@ -88,7 +88,7 @@ async function displayCardsDynamically() {
             const quest = questDoc.data(); 
 
             // Populate the card with hike data
-            newcard.querySelector('.card-title').textContent = quest.quest_task; 
+            newcard.querySelector('.card-header').textContent = quest.quest_task; 
             newcard.querySelector('.card-text').textContent = `Reward: ${quest.reward}.`;
             newcard.querySelector('.card-length').textContent = `Failure: ${quest.failure}.`;
 

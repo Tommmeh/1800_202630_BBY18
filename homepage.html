@@ -66,31 +66,35 @@
             </div>
         </section>
 
-<!--- Quest section --->
+        <!--- Quest section --->
 
-        <div class="container-fluid bg-body text-dark p-5">
-            <h1>Quests</h1>
-            <div id="quests-go-here" class="row">
-            </div>
-        </div>
+        <div class="album py-3 bg-1">
+            <div class="container">
 
-        <template id="questCardTemplate">
-            <div class="row row-cols-1 sm:row-cols-2 md:row-cols-3 g-3">
-                <div class="col">
-                    <div class="card" style="width: 100%;">
-                        <div class="card-body">
-                            <div class="card-body">
-                                <h3 class="card-title"></h3>
-                                <p class="card-text"></p>
-                                <p class="card-length"></p>
-                                <a class="btn btn-primary" id="game-link" href="#">Go to game</a>
+                <div class="container-fluid bg-body text-dark p-5">
+                    <h1>Quests</h1>
+                    <div id="quests-go-here" class="row">
+                    </div>
+                </div>
+
+                <template id="questCardTemplate">
+
+                    <div class="row row-cols-1 sm:row-cols-2 md:row-cols-3 g-3">
+                        <div class="col">
+                            <div class="card" style="width: 100%;">
+                                <h4 class="p-3 card-header">Header</h4>
+                                <div class="card-body">
+                                    <p class="card-text"></p>
+                                    <p class="card-length"></p>
+                                    <button type="button" class="btn btn-warning">Go to game</button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </template>
             </div>
-        </template>
-<!---End of quest section-->
+        </div>
+        <!---End of quest section-->
     </main>
 
     <div class="container">
