@@ -7,48 +7,29 @@ async function setQuestData() {
     await setDoc(doc(db, "quests", "quest_1"), {
         quest_task: "Win a game",
         reward: "A random fish grows bigger",
-        failure: "A random fish starves"
+        failure: "A random fish starves",
+        page: "quiz.html"
     });
     await setDoc(doc(db, "quests", "quest_2"), {
         quest_task: "Score over 80% on a quiz",
         reward: "You get a new fish!",
-        failure: "A random fish DIES"
+        failure: "A random fish DIES",
+        page: "thisorthat.html"
     });
     await setDoc(doc(db, "quests", "quest_3"), {
         quest_task: "Do a backflip",
         reward: "A random fish changes colour",
-        failure: "A random fish becomes blind"
+        failure: "A random fish becomes blind",
+        page: "quiz.html"
     });
     await setDoc(doc(db, "quests", "quest_4"), {
         quest_task: "Win *game name* 3 times",
         reward: "You get a random fish cosmetic",
-        failure: "A random fish becomes ugly"
+        failure: "A random fish becomes ugly",
+        page: "thisorthat.html"
     });
 }
 
-// // Helper function to add the sample hike documents.
-// function setHikeData() {
-//     const hikesRef = collection(db, "hikes");
-
-//     addDoc(hikesRef, {
-//         code: "BBY01", name: "Burnaby Lake Park Trail", city: "Burnaby",
-//         level: "easy", details: "A lovely place for a lunch walk.", length: 10,
-//         hike_time: 60, lat: 49.2467097082573, lng: -122.9187029619698,
-//         last_updated: serverTimestamp()
-//     });
-//     addDoc(hikesRef, {
-//         code: "AM01", name: "Buntzen Lake Trail", city: "Anmore",
-//         level: "moderate", details: "Close to town, and relaxing.", length: 10.5,
-//         hike_time: 80, lat: 49.3399431028579, lng: -122.85908496766939,
-//         last_updated: serverTimestamp()
-//     });
-//     addDoc(hikesRef, {
-//         code: "NV01", name: "Mount Seymour Trail", city: "North Vancouver",
-//         level: "hard", details: "Amazing ski slope views.", length: 8.2,
-//         hike_time: 120, lat: 49.38847101455571,lng: -122.94092543551031,
-//         last_updated: serverTimestamp()
-//     });
-// }
 
 // Seeds the "hikes" collection with initial data if it is empty
 async function seedQuests() {
@@ -124,6 +105,10 @@ async function displayCardsDynamically() {
             newcard.querySelector('.card-header').textContent = quest.quest_task; 
             newcard.querySelector('.card-text').textContent = `Reward: ${quest.reward}.`;
             newcard.querySelector('.card-length').textContent = `Failure: ${quest.failure}.`;
+            console.log(quest);
+            if (quest.page) {
+                newcard.querySelector("a").href = quest.page;
+            }
 
             // Attach the card to the container
             document.getElementById("quests-go-here").appendChild(newcard);
@@ -152,50 +137,98 @@ async function loadQuests() {
     return random_quest_list;
 }
 
+
 // Call the function
 loadQuests().then(random_quest_list => {
     startQuestTimer(random_quest_list);
 });
+
 // Start the quest timer
 function startQuestTimer(random_quest_list) {
     console.log(random_quest_list);
     console.log("start");
-    let timeLeft = 5;
+    let timeLeft = 60 * 60 * 2 * 1; //Seconds, minutes, hours, days
 
     const timerDisplay = document.getElementById("questTimer");
 
+    //Timer section
     const countdown = setInterval(function () {
 
         timeLeft--;
 
-        timerDisplay.textContent = `Time remaining: ${timeLeft} seconds`;
+        let prt_days = 0
+        let prt_hours = 0
+        let prt_minutes = 0
+        let prt_seconds
 
+        let days = 0;
+        if (timeLeft >= 86400) {
+            let days = Math.floor(timeLeft/86400)
+            prt_days = `${days}d`
+        }
+        else {
+            prt_days = ``
+        }
+
+        let hours = 0;
+        if (timeLeft >= 3600) {
+            let hours = Math.floor((timeLeft%86400)/3600)
+            prt_hours = `${hours}h`
+            
+        }
+        else {
+            prt_hours = ``
+        }
+
+        let minutes = 0;
+        if (timeLeft >= 60) {
+            let minutes = Math.floor(((timeLeft%86400)%3600)/60)
+            prt_minutes = `${minutes}m`
+            
+        }
+        else {
+            prt_minutes = ``
+        }
+
+        let seconds = 0;
+        if (timeLeft >= 1) {
+            let seconds = Math.floor((((timeLeft%86400)%3600)%60))
+            prt_seconds = `${seconds}s`
+            
+        }
+        else {
+            prt_seconds = ``
+        }
+
+        timerDisplay.textContent = `Time remaining: ${prt_days} ${prt_hours} ${prt_minutes} ${prt_seconds}`;
+        //End of timer section
+        //Timer when 0
+        
         if (timeLeft <= 0) {
 
             clearInterval(countdown);
-            
 
             random_quest_list.forEach((quest) => {
                 let fail = quest.failure;
                 if (fail === "A random fish starves") {
                     console.log("bro starved");
-                }
+                } //quest 1 ^^^
                 else if (fail === "A random fish DIES") {
                     console.log("bro died");
-                }
+                } //quest 2 ^^^
                 else if (fail === "A random fish becomes blind") {
                     console.log("bro blind");
-                }
+                } //quest 3 ^^^
                 else if (fail === "A random fish becomes ugly") {
                     console.log("bro ugly");
-                }
+                } //quest 4 ^^^
             });
 
             timerDisplay.textContent = "Time is up!";
 
             document.getElementById("quests-go-here").innerHTML = "";
 
-        }
+        } //End timer when 0
 
     }, 1000);
 }
