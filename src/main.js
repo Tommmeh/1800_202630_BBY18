@@ -4,6 +4,15 @@ import '../styles/style.css';
 
 import { auth } from "./firebase.js";
 import { signOut, onAuthStateChanged } from "firebase/auth";
+import { Fish } from "./fish.js";
+
+// Tie the fish on the page to the user's first fish in Firestore
+onAuthStateChanged(auth, async (user) => {
+  const fishEl = document.getElementById("fish");
+  if (!user || !fishEl) return;
+  const [myFish] = await Fish.loadOrCreate(user.uid);
+  myFish.listen(() => myFish.applyTo(fishEl));
+});
 
 /**
  * Returns a random integer between min (inclusive) and max (inclusive).
