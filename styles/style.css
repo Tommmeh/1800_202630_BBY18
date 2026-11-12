@@ -1,1 +1,14 @@
+.tank{
+    width:90%;
+    margin-left:5%;
+    margin-top:5%;
+    background-color:aqua;
+    height:800px;
+}
+#fish{
+    width:10%;
+    height:7%;
+    position: relative;
+    background-color:orange;
 
+}
