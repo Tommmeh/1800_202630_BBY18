@@ -15,9 +15,9 @@ async function setQuestData() {
         failure: "A random fish DIES"
     });
     await setDoc(doc(db, "quests", "quest_3"), {
-        quest_task: "Win a game",
-        reward: "A random fish grows bigger",
-        failure: "A random fish starves"
+        quest_task: "Do a backflip",
+        reward: "A random fish changes colour",
+        failure: "A random fish becomes blind"
     });
     await setDoc(doc(db, "quests", "quest_4"), {
         quest_task: "Win *game name* 3 times",
@@ -112,7 +112,7 @@ async function displayCardsDynamically() {
         quests = shuffleQuests(quests);
         // Choose a random number of quests to display
         let numberOfQuests = Math.floor(Math.random() * 3) + 1;
-
+        let random_quest_list = [];
         // Go through the quests array and display each quest
         quests.slice(0, numberOfQuests).forEach(quest => {
 
@@ -127,8 +127,11 @@ async function displayCardsDynamically() {
 
             // Attach the card to the container
             document.getElementById("quests-go-here").appendChild(newcard);
-
+            random_quest_list.push(quest);
         });
+        console.log(random_quest_list);
+        console.log("display");
+        return random_quest_list
 
     } catch (error) {
         console.error("Error getting documents: ", error);
@@ -143,17 +146,21 @@ async function loadQuests() {
     await seedQuests();
 
     // Then display the quest cards
-    await displayCardsDynamically();
+    let random_quest_list = await displayCardsDynamically();
+    console.log(random_quest_list);
+    console.log("load");
+    return random_quest_list;
 }
 
 // Call the function
-loadQuests().then(() => {
-    startQuestTimer();
+loadQuests().then(random_quest_list => {
+    startQuestTimer(random_quest_list);
 });
 // Start the quest timer
-function startQuestTimer() {
-
-    let timeLeft = 60;
+function startQuestTimer(random_quest_list) {
+    console.log(random_quest_list);
+    console.log("start");
+    let timeLeft = 5;
 
     const timerDisplay = document.getElementById("questTimer");
 
@@ -166,6 +173,23 @@ function startQuestTimer() {
         if (timeLeft <= 0) {
 
             clearInterval(countdown);
+            
+
+            random_quest_list.forEach((quest) => {
+                let fail = quest.failure;
+                if (fail === "A random fish starves") {
+                    console.log("bro starved");
+                }
+                else if (fail === "A random fish DIES") {
+                    console.log("bro died");
+                }
+                else if (fail === "A random fish becomes blind") {
+                    console.log("bro blind");
+                }
+                else if (fail === "A random fish becomes ugly") {
+                    console.log("bro ugly");
+                }
+            });
 
             timerDisplay.textContent = "Time is up!";
 
