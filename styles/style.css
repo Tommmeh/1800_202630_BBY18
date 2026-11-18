@@ -213,3 +213,179 @@ body::after {
     background-color: #B8DCEB;
     transform: rotate(3deg);
 }
+/* Quiz page theme */
+body > header {
+    background-color: #123B5D !important;
+    color: white;
+}
+
+body > header h1 {
+    color: white;
+}
+
+body > header a {
+    border-color: #63B3D1;
+    color: white;
+}
+
+body > header a:hover {
+    background-color: #63B3D1;
+    color: #123B5D;
+}
+
+/* Quiz card */
+body > main .card {
+    border: 1px solid #D5EAF3;
+    border-radius: 16px;
+    background-color: white;
+}
+
+/* Quiz heading */
+body > main h2 {
+    color: #123B5D;
+}
+
+/* Answer choices */
+#answer-options .form-check {
+    border-color: #D5EAF3 !important;
+    border-radius: 10px;
+    transition: 0.2s;
+}
+
+#answer-options .form-check:hover {
+    background-color: #EAF4F8;
+    border-color: #63B3D1 !important;
+}
+
+/* Radio buttons */
+#answer-options .form-check-input:checked {
+    background-color: #1F6E8C;
+    border-color: #1F6E8C;
+}
+
+/* Quiz buttons */
+#submit-button {
+    background-color: #1F6E8C;
+    border-color: #1F6E8C;
+}
+
+#submit-button:hover {
+    background-color: #123B5D;
+    border-color: #123B5D;
+}
+
+#next-button {
+    background-color: #63B3D1;
+    border-color: #63B3D1;
+    color: #123B5D;
+}
+
+#next-button:hover {
+    background-color: #1F6E8C;
+    border-color: #1F6E8C;
+    color: white;
+}
+/* Force quiz navbar to Phshing navy */
+body > header.bg-dark {
+    background-color: #123B5D !important;
+}
+.quiz-back-link {
+    display: inline-block;
+    color: #1F6E8C;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 10px 18px;
+    border: 1px solid #63B3D1;
+    border-radius: 10px;
+    transition: 0.2s;
+}
+
+.quiz-back-link:hover {
+    background-color: #1F6E8C;
+    color: white;
+}
+/* This or That game page */
+.thisorthat-card {
+    max-width: 850px;
+    margin: 20px auto;
+    background: white;
+    border: 1px solid #D5EAF3;
+    border-radius: 20px;
+    padding: 35px !important;
+    box-shadow: 0 6px 20px rgba(18, 59, 93, 0.10);
+    position: relative;
+    z-index: 1;
+}
+
+/* Game title */
+.thisorthat-card h2 {
+    color: #123B5D;
+    font-weight: 700;
+}
+
+/* Real link choices */
+#left-btn,
+#right-btn {
+    background-color: #EAF4F8;
+    color: #123B5D;
+    border: 2px solid #D5EAF3;
+    border-radius: 12px;
+    transition: 0.2s ease;
+}
+
+#left-btn:hover,
+#right-btn:hover {
+    background-color: #D5EAF3;
+    border-color: #63B3D1;
+    color: #123B5D;
+}
+
+/* Next button */
+#next-btn {
+    background-color: #1F6E8C;
+    border-color: #1F6E8C;
+    color: white;
+    border-radius: 10px;
+}
+
+#next-btn:hover {
+    background-color: #123B5D;
+    border-color: #123B5D;
+}
+
+/* Game feedback and score */
+#feedback,
+#round-text,
+#score-text {
+    color: #123B5D;
+}
+
+/* Back to Games link */
+.quiz-back-link {
+    display: inline-block;
+    color: #1F6E8C;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 10px 18px;
+    border: 1px solid #63B3D1;
+    border-radius: 10px;
+    transition: 0.2s ease;
+}
+
+.quiz-back-link:hover {
+    background-color: #1F6E8C;
+    color: white;
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+    .thisorthat-card {
+        padding: 20px !important;
+    }
+
+    #left-btn,
+    #right-btn {
+        padding: 20px !important;
+        font-size: 1rem !important;
+    }
+}
