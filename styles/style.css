@@ -1,14 +1,215 @@
-.tank{
-    width:90%;
-    margin-left:5%;
-    margin-top:5%;
-    background-color:aqua;
-    height:800px;
+.tank {
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 5%;
+    background-color: aqua;
+    height: 800px;
 }
-#fish{
-    width:10%;
-    height:7%;
-    position: relative;
-    background-color:orange;
 
+#fish {
+    width: 10%;
+    height: 7%;
+    position: relative;
+    background-color: orange;
+
+}
+
+/* Phshing navbar theme */
+.phsh-navbar {
+    background: #123B5D !important;
+    background-color: #123B5D !important;
+    border-bottom: 2px solid #1F6E8C !important;
+}
+
+.phsh-navbar .nav-link {
+    color: white !important;
+}
+
+.phsh-navbar .nav-link:hover {
+    color: #63B3D1 !important;
+}
+
+.
+
+/* Logout button */
+.phsh-logout {
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    background-color: #1F6E8C;
+    color: white;
+    border: 2px solid #63B3D1;
+    font-weight: 600;
+}
+
+/* Logout button hover */
+.phsh-logout:hover {
+    background-color: #63B3D1;
+    color: #123B5D;
+    border-color: #63B3D1;
+}
+/* Navbar */
+.phsh-navbar {
+    background-color: #123B5D;
+    border-bottom: 2px solid #1F6E8C;
+    width: 100%;
+}
+
+.navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 5%;
+}
+
+.navbar-logo img {
+    width: 180px;
+    height: auto;
+    display: block;
+}
+
+.navbar-links {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-links li {
+    list-style: none;
+}
+
+.navbar-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.navbar-links a:hover {
+    color: #63B3D1;
+}
+/* ============================= */
+/* PHSHING NAVBAR */
+/* ============================= */
+
+.phsh-navbar {
+    background-color: #123B5D;
+    border-bottom: 2px solid #1F6E8C;
+    width: 100%;
+}
+
+.navbar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 20px;
+    gap: 20px;
+}
+
+/* Logo */
+.navbar-logo img {
+    width: 250px;
+    height: auto;
+    display: block;
+}
+
+/* Navigation links */
+.navbar-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar-links li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Link styling */
+.navbar-links a {
+    color: white !important;
+    text-decoration: none !important;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.navbar-links a:hover {
+    color: #63B3D1 !important;
+}
+
+/* Phshing Logout Button */
+.phsh-logout {
+    font-size: 18px;
+    padding: 12px 24px;
+    border-radius: 10px;
+    background-color: #1F6E8C;
+    color: white;
+    border: 2px solid #63B3D1;
+    font-weight: 600;
+}
+
+.phsh-logout:hover {
+    background-color: #63B3D1;
+    color: #123B5D;
+    border-color: #63B3D1;
+}
+/* Global Phshing ocean theme */
+body {
+    background-color: #EAF4F8;
+}
+
+/* Main headings */
+h1, h2, h3, h4 {
+    color: #123B5D;
+}
+
+/* Main content text */
+body {
+    color: #123B5D;
+}
+/* Global ocean background */
+body {
+    background-color: #EAF4F8;
+    color: #123B5D;
+    min-height: 100vh;
+    position: relative;
+    isolation: isolate;
+    overflow-x: hidden;
+}
+
+/* Background waves */
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    left: -10%;
+    width: 120%;
+    pointer-events: none;
+    z-index: -1;
+    border-radius: 50% 50% 0 0;
+}
+
+/* First wave */
+body::before {
+    bottom: -120px;
+    height: 250px;
+    background-color: #D5EAF3;
+    transform: rotate(-3deg);
+}
+
+/* Second wave */
+body::after {
+    bottom: -170px;
+    height: 250px;
+    background-color: #B8DCEB;
+    transform: rotate(3deg);
 }
