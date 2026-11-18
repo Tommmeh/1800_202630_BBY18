@@ -5,31 +5,36 @@ import { collection, doc, getDocs, setDoc, serverTimestamp } from "firebase/fire
 async function setQuestData() {
 
     await setDoc(doc(db, "quests", "quest_1"), {
-        quest_task: "Win a game",
-        reward: "A random fish grows bigger",
-        failure: "A random fish starves",
-        page: "quiz.html"
+        quest_task: "Score 3/3 in 'Phishing quiz'",
+        reward: "Gain +1 Fish food",
+        failure: "",
+        page: "quiz.html",
+        status: "Incomplete"
     });
     await setDoc(doc(db, "quests", "quest_2"), {
         quest_task: "Score over 80% on a quiz",
         reward: "You get a new fish!",
-        failure: "A random fish DIES",
-        page: "thisorthat.html"
+        failure: "Failure: A random fish DIES.",
+        page: "thisorthat.html",
+        status: "Incomplete"
     });
     await setDoc(doc(db, "quests", "quest_3"), {
         quest_task: "Do a backflip",
         reward: "A random fish changes colour",
-        failure: "A random fish becomes blind",
-        page: "quiz.html"
+        failure: "Failure: A random fish becomes blind.",
+        page: "quiz.html",
+        status: "Incomplete"
     });
     await setDoc(doc(db, "quests", "quest_4"), {
         quest_task: "Win *game name* 3 times",
         reward: "You get a random fish cosmetic",
-        failure: "A random fish becomes ugly",
-        page: "thisorthat.html"
+        failure: "Failure: A random fish becomes ugly.",
+        page: "thisorthat.html",
+        status: "Incomplete"
     });
 }
 
+setQuestData()
 
 // Seeds the "hikes" collection with initial data if it is empty
 async function seedQuests() {
@@ -92,7 +97,7 @@ async function displayCardsDynamically() {
         // Shuffle the quests randomly
         quests = shuffleQuests(quests);
         // Choose a random number of quests to display
-        let numberOfQuests = Math.floor(Math.random() * 3) + 1;
+        let numberOfQuests = 2;
         let random_quest_list = [];
         // Go through the quests array and display each quest
         quests.slice(0, numberOfQuests).forEach(quest => {
@@ -102,9 +107,10 @@ async function displayCardsDynamically() {
 
 
             // Populate the card with hike data
-            newcard.querySelector('.card-header').textContent = quest.quest_task; 
+            newcard.querySelector('.card-header').textContent = quest.quest_task;
             newcard.querySelector('.card-text').textContent = `Reward: ${quest.reward}.`;
-            newcard.querySelector('.card-length').textContent = `Failure: ${quest.failure}.`;
+            newcard.querySelector('.card-length').textContent = `${quest.failure}`;
+            newcard.querySelector('.status').textContent = quest.status;
             console.log(quest);
             if (quest.page) {
                 newcard.querySelector("a").href = quest.page;
@@ -147,7 +153,7 @@ loadQuests().then(random_quest_list => {
 function startQuestTimer(random_quest_list) {
     console.log(random_quest_list);
     console.log("start");
-    let timeLeft = 60 * 60 * 2 * 1; //Seconds, minutes, hours, days
+    let timeLeft = 60 * 60 * 24 * 2; //Seconds, minutes, hours, days
 
     const timerDisplay = document.getElementById("questTimer");
 
@@ -174,7 +180,7 @@ function startQuestTimer(random_quest_list) {
         if (timeLeft >= 3600) {
             let hours = Math.floor((timeLeft%86400)/3600)
             prt_hours = `${hours}h`
-            
+
         }
         else {
             prt_hours = ``
@@ -184,7 +190,7 @@ function startQuestTimer(random_quest_list) {
         if (timeLeft >= 60) {
             let minutes = Math.floor(((timeLeft%86400)%3600)/60)
             prt_minutes = `${minutes}m`
-            
+
         }
         else {
             prt_minutes = ``
@@ -194,7 +200,7 @@ function startQuestTimer(random_quest_list) {
         if (timeLeft >= 1) {
             let seconds = Math.floor((((timeLeft%86400)%3600)%60))
             prt_seconds = `${seconds}s`
-            
+
         }
         else {
             prt_seconds = ``
@@ -203,23 +209,23 @@ function startQuestTimer(random_quest_list) {
         timerDisplay.textContent = `Time remaining: ${prt_days} ${prt_hours} ${prt_minutes} ${prt_seconds}`;
         //End of timer section
         //Timer when 0
-        
+
         if (timeLeft <= 0) {
 
             clearInterval(countdown);
-
+            //Custom quest fail section
             random_quest_list.forEach((quest) => {
                 let fail = quest.failure;
-                if (fail === "A random fish starves") {
+                if (fail === "Failure: N/A.") {
                     console.log("bro starved");
                 } //quest 1 ^^^
-                else if (fail === "A random fish DIES") {
+                else if (fail === "Failure: A random fish DIES.") {
                     console.log("bro died");
                 } //quest 2 ^^^
-                else if (fail === "A random fish becomes blind") {
+                else if (fail === "Failure: A random fish becomes blind.") {
                     console.log("bro blind");
                 } //quest 3 ^^^
-                else if (fail === "A random fish becomes ugly") {
+                else if (fail === "Failure: A random fish becomes ugly.") {
                     console.log("bro ugly");
                 } //quest 4 ^^^
             });
