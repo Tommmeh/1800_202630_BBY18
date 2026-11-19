@@ -389,3 +389,16 @@ body > header.bg-dark {
         font-size: 1rem !important;
     }
 }
+/* Whack-a-Phish */
+.phish-tank {
+    background-color: #7fd6ec;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.hole {
+    height: 100px;
+    font-size: 2.5rem;
+    background-color: #123B5D;
+    border-radius: 50%;
+}
