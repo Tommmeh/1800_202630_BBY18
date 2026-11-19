@@ -122,7 +122,6 @@ function startHunger(expiresAt) {
     }
     let BarWidth = Math.floor((Date.now() / expiresAt)*100);
     HungerBar.style.width = BarWidth + "%";
-    console.log((Date.now() / expiresAt)*100)
   }
   updateHunger();
 
