@@ -18,6 +18,7 @@ onAuthReady(function (user) {
 });
 
 
+
 // ---- (1) What to do when the form is submitted ----
 async function newScore() {
 
@@ -34,6 +35,7 @@ async function newScore() {
     } catch (error) {
         alert(`Error saving score:\n${error.code || ""}\n${error.message || error}`);
     }
+
 }
 
 const questions = [
@@ -151,6 +153,7 @@ submitButton.addEventListener("click", function () {
     submitButton.hidden = true;
     nextButton.hidden = false;
 });
+
 
 nextButton.addEventListener("click", function () {
     currentQuestion++;
