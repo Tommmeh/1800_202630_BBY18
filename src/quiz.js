@@ -1,6 +1,6 @@
 import { db } from "./firebase.js";
 import { onAuthStateChanged } from "firebase/auth";
-import { collection, addDoc, doc, updateDoc, getDocs } from "firebase/firestore";
+import { collection, addDoc } from "firebase/firestore";
 import { auth } from "/src/firebase.js";
 
 let currentUser = null;
