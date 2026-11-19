@@ -17,6 +17,7 @@ async function displayGames() {
         newCard.querySelector(".card-text").textContent = game.Description;
         newCard.querySelector(".game-image").src = game.ImageURL;
         newCard.querySelector("small").textContent = game.Difficulty;
+        newCard.querySelector(".game_button").textContent = game.Button;
 
         if (game.Page) {
             newCard.querySelector("a").href = game.Page;

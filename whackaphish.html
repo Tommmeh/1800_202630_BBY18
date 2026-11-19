@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Whack a Phish | Phsh Game</title>
+    <link rel="icon" type="image/png" href="./images/phshing-logo.png">
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+
+<body class="bg-light">
+
+    <header class="bg-dark text-white py-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <h1 class="h4 mb-0">Phsh Game</h1>
+        </div>
+    </header>
+
+    <main class="container py-5 text-center thisorthat-card">
+        <h2>Whack a Phish</h2>
+        <p class="text-muted">Hit the fish. Don't hit the hooks. Get 10 points to win.</p>
+
+        <p id="score-text" class="fw-bold">Score: 0 / 10</p>
+
+        <!-- The 6 holes -->
+        <div class="phish-tank row g-3 my-4">
+            <div class="col-4"><button class="hole btn w-100"></button></div>
+            <div class="col-4"><button class="hole btn w-100"></button></div>
+            <div class="col-4"><button class="hole btn w-100"></button></div>
+            <div class="col-4"><button class="hole btn w-100"></button></div>
+            <div class="col-4"><button class="hole btn w-100"></button></div>
+            <div class="col-4"><button class="hole btn w-100"></button></div>
+        </div>
+
+        <!-- Shows up when you hit a hook -->
+        <div id="question-box" hidden>
+            <p class="fs-5 fw-bold">Hooked! Which link is real?</p>
+            <div class="row g-3 justify-content-center my-3">
+                <div class="col-md-5">
+                    <button id="left-btn" class="btn btn-outline-primary w-100 p-4 fs-5"></button>
+                </div>
+                <div class="col-md-5">
+                    <button id="right-btn" class="btn btn-outline-primary w-100 p-4 fs-5"></button>
+                </div>
+            </div>
+            <button id="continue-btn" class="btn btn-primary" hidden>Continue</button>
+        </div>
+
+        <p id="feedback" class="fs-5" aria-live="polite"></p>
+
+        <button id="start-btn" class="btn btn-primary">Start</button>
+    </main>
+    <div class="text-center mt-3">
+        <a href="gameslist.html" class="quiz-back-link">
+            ← Back to Games
+        </a>
+    </div>
+
+    <script type="module" src="./src/main.js"></script>
+    <script type="module" src="./src/whackaphish.js"></script>
+</body>
+
+</html>
