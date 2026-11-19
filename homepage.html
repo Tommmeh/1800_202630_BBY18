@@ -3,6 +3,8 @@
 
 <head>
     <title>Phsh Game</title>
+    
+    <link rel="icon" type="image/png" href="./images/phshing-logo.png">
     <meta name="comp1800 template" content="Phsh Game">
 
     <!-- Required meta tags -->
@@ -21,13 +23,13 @@
     <!------------------------------>
     <!-- Stuff for body goes here -->
 
-    <div class="px-3 py-2 fg-white bg-black border-bottom" data-bs-theme="dark">
+    <div class="px-3 py-2 fg-white border-bottom phsh-navbar" data-bs-theme="dark">
         <div class="container">
-            <div class="d-flex flex-wrap align-items-center justify-content-center lg:justify-content-start"><a href="/"
-                    class="d-flex align-items-center my-2 lg:my-0 lg:me-auto fg-body text-decoration-none"><svg
-                        class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
-                        <use href="#bootstrap"></use>
-                    </svg></a>
+            <div class="d-flex flex-wrap align-items-center justify-content-center lg:justify-content-start"><a
+                    href="homepage.html"
+                    class="d-flex align-items-center my-2 lg:my-0 lg:me-auto fg-body text-decoration-none">
+                    <img src="./images/phshing-logo.png" alt="Phshing logo" width="250">
+                </a>
                 <ul class="nav col-12 lg:col-auto my-2 justify-content-center md:my-0">
                     <li><a href="homepage.html" class="nav-link fg-secondary flex-column"><svg
                                 class="bi d-block mx-auto" width="24" height="24" aria-hidden="true">
@@ -59,20 +61,20 @@
     <div class="tank">
         <div id="fish"></div>
     </div>
-        </section>
+    </section>
 
-        <!--- Quest section --->
+    <!--- Quest section --->
 
 
-        <div class="album py-3 bg-1">
-            <div class="container">
+    <div class="album py-3 bg-1">
+        <div class="container">
 
-                <div class="container-fluid bg-body text-dark p-5">
-                    <h1>Quests</h1>
-                    <h4 id="questTimer">Time remaining: Loading...</h4>
-                    <div id="quests-go-here" class="row">
-                    </div>
+            <div class="container-fluid bg-body text-dark p-5">
+                <h1>Quests</h1>
+                <h4 id="questTimer">Time remaining: Loading...</h4>
+                <div id="quests-go-here" class="row">
                 </div>
+            </div>
 
                 <template id="questCardTemplate">
                     <div class="row row-cols-1 sm:row-cols-2 md:row-cols-3 g-3">
@@ -114,13 +116,13 @@
         </footer>
     </div>
 
-    <!---------------------------------------------->
-    <!-- Your own JavaScript functions go here    -->
-    <!---------------------------------------------->
+            <!---------------------------------------------->
+            <!-- Your own JavaScript functions go here    -->
+            <!---------------------------------------------->
 
-    <!-- Link to scripts of your own -->
-    <script type="module" src="./src/main.js"></script>
-    <script type="module" src="./src/quests.js"></script>
+            <!-- Link to scripts of your own -->
+            <script type="module" src="./src/main.js"></script>
+            <script type="module" src="./src/quests.js"></script>
 
 </body>
 

@@ -3,6 +3,7 @@
 
 <head>
     <title>Phsh Game</title>
+    <link rel="icon" type="image/png" href="./images/phshing-logo.png">
     <meta name="comp1800 template" content="Phsh Game">
 
     <!-- Required meta tags -->
@@ -19,48 +20,41 @@
     <!-- Your HTML Layout go here -->
     <!------------------------------>
     <!-- Stuff for body goes here -->
-    <div class="px-3 py-2 fg-white bg-black border-bottom" data-bs-theme="dark">
-        <div class="container">
-            <div class="d-flex flex-wrap align-items-center justify-content-center lg:justify-content-start"><a href="/"
-                    class="d-flex align-items-center my-2 lg:my-0 lg:me-auto fg-body text-decoration-none"><svg
-                        class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
-                        <use href="#bootstrap"></use>
-                    </svg></a>
-                <ul class="nav col-12 lg:col-auto my-2 justify-content-center md:my-0">
-                    <li><a href="homepage.html" class="nav-link fg-secondary flex-column"><svg class="bi d-block mx-auto" width="24"
-                                height="24" aria-hidden="true">
-                                <use href="homepage.html"></use>
-                            </svg>Home</a></li>
-                    <li><a href="gameslist.html" class="nav-link fg-white flex-column"><svg class="bi d-block mx-auto" width="24"
-                                height="24" aria-hidden="true">
-                                <use href="gameslist.html"></use>
-                            </svg>Games</a></li>
-                    <li><a href="learninglist.html" class="nav-link fg-white flex-column"><svg class="bi d-block mx-auto" width="24"
-                                height="24" aria-hidden="true">
-                                <use href="#table"></use>
-                            </svg>Learn</a></li>
-                    <li><a href="#" class="nav-link fg-white flex-column"><svg class="bi d-block mx-auto" width="24"
-                                height="24" aria-hidden="true">
-                                <use href="#grid"></use>
-                            </svg>Settings</a></li>
-                    <li><a href="index.html" class="nav-link fg-white flex-column"><svg class="bi d-block mx-auto" width="24"
-                                height="24" aria-hidden="true">
-                                <use href="index.html"></use>
-                            </svg>Profile</a></li>
-                </ul>
-            </div>
+    <body>
+
+    <body>
+
+    <!-- Navbar -->
+    <nav class="phsh-navbar">
+        <div class="navbar-container">
+
+            <!-- Centered logo -->
+            <a href="index.html" class="navbar-logo">
+                <img src="./images/phshing-logo.png" alt="Phshing logo" width="250">
+            </a>
+
+            <!-- Navigation links -->
+            <ul class="navbar-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="gameslist.html">Games</a></li>
+                <li><a href="learninglist.html">Learn</a></li>
+                <li><a href="#">Settings</a></li>
+                <li><a href="profile.html">Profile</a></li>
+            </ul>
+
         </div>
-    </div>
+    </nav>
+
+    <!-- Your hero section goes here -->
 
     <div class="px-4 py-5 my-5 text-center">
         <h1 class="fs-4xl fw-bold fg-emphasis-inverse">Phsh Game</h1>
         <div class="lg:col-6 mx-auto">
-            <p class="fs-lg fw-light mb-4">A mobile-friendly web application to help young adults to identify phishing schemes by developing fun educational mini games.</p>
+            <p class="fs-lg fw-light mb-4">A mobile-friendly web application to help young adults to identify phishing
+                schemes by developing fun educational mini games.</p>
             <div class="d-grid gap-2 sm:d-flex sm:justify-content-center">
-                <a href="login.html"
-                    class="btn-solid theme-primary btn-lg px-4">Log-In</a>
-                <a href="signup.html"
-                    class="btn-outline theme-secondary btn-lg px-4">Sign-Up</a>
+                <a href="login.html" class="btn-solid theme-primary btn-lg px-4">Log-In</a>
+                <a href="signup.html" class="btn-outline theme-secondary btn-lg px-4">Sign-Up</a>
             </div>
         </div>
     </div>
@@ -83,7 +77,8 @@
                 </svg>
                 <div>
                     <h3 class="fw-bold mb-0 fs-xl">Attack frequency</h3>
-                    <p>Millions of phishing attempts and unique sites are logged quarterly by security researchers and organizations like the Anti-Phishing Working Group.</p>
+                    <p>Millions of phishing attempts and unique sites are logged quarterly by security researchers and
+                        organizations like the Anti-Phishing Working Group.</p>
                 </div>
             </div>
             <div class="col d-flex align-items-start"><svg class="bi fg-2 flex-shrink-0 me-3" width="1.75em"
@@ -101,7 +96,8 @@
                 </svg>
                 <div>
                     <h3 class="fw-bold mb-0 fs-xl">AI integration</h3>
-                    <p>Over 80% of recent phishing emails leverage generative AI tools to craft hyper-personalized messages, driving higher click-through rates.</p>
+                    <p>Over 80% of recent phishing emails leverage generative AI tools to craft hyper-personalized
+                        messages, driving higher click-through rates.</p>
                 </div>
             </div>
             <div class="col d-flex align-items-start"><svg class="bi fg-2 flex-shrink-0 me-3" width="1.75em"
@@ -110,7 +106,8 @@
                 </svg>
                 <div>
                     <h3 class="fw-bold mb-0 fs-xl">Time to Contain</h3>
-                    <p>It takes an average of 254 days to identify and contain a breach that originates from a phishing vector.</p>
+                    <p>It takes an average of 254 days to identify and contain a breach that originates from a phishing
+                        vector.</p>
                 </div>
             </div>
             <div class="col d-flex align-items-start"><svg class="bi fg-2 flex-shrink-0 me-3" width="1.75em"
@@ -119,7 +116,8 @@
                 </svg>
                 <div>
                     <h3 class="fw-bold mb-0 fs-xl">Compromised accounts</h3>
-                    <p>Nearly 58% of phishing emails are now sent from legitimate, compromised email accounts rather than obvious spam relays.</p>
+                    <p>Nearly 58% of phishing emails are now sent from legitimate, compromised email accounts rather
+                        than obvious spam relays.</p>
                 </div>
             </div>
         </div>
