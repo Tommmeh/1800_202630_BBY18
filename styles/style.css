@@ -12,7 +12,7 @@
 
 #BarFrame{
     background-color:black;
-    height:50px;
+    aspect-ratio: 20/2;
     margin-left:10%;
     padding:3px;
     width:30%;

@@ -111,8 +111,9 @@ function startHunger(expiresAt) {
       clearInterval(countdown);
       return;
     }
-    let BarWidth = Math.floor(expiresAt / Date.now())*100;
+    let BarWidth = Math.floor((Date.now() / expiresAt)*100);
     HungerBar.style.width = BarWidth + "%";
+    console.log((Date.now() / expiresAt)*100)
   }
   updateHunger();
 
