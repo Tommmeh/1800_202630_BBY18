@@ -42,7 +42,6 @@ async function setQuestData() {
     });
 }
 
-setQuestData()
 
 // Seeds the "hikes" collection with initial data if it is empty
 async function seedQuests() {
@@ -166,7 +165,10 @@ function displayCardsDynamically(questData) {
             `Reward: ${quest.reward}.`;
 
         newcard.querySelector(".card-length").textContent =
-            `Failure: ${quest.failure}.`;
+            `${quest.failure}`;
+
+        newcard.querySelector(".status").textContent =
+            `${quest.status}`;
 
         if (quest.page) {
             newcard.querySelector("a").href = quest.page;
