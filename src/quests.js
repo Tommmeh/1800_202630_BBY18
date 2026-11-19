@@ -13,28 +13,32 @@ import { onAuthStateChanged } from "firebase/auth";
 async function setQuestData() {
 
     await setDoc(doc(db, "quests", "quest_1"), {
-        quest_task: "Win a game",
-        reward: "A random fish grows bigger",
-        failure: "A random fish starves",
-        page: "quiz.html"
+        quest_task: "Score 3/3 in 'Phishing quiz'",
+        reward: "Gain +1 Fish food",
+        failure: "",
+        page: "quiz.html",
+        status: "Incomplete"
     });
     await setDoc(doc(db, "quests", "quest_2"), {
         quest_task: "Score over 80% on a quiz",
         reward: "You get a new fish!",
-        failure: "A random fish DIES",
-        page: "thisorthat.html"
+        failure: "Failure: A random fish DIES.",
+        page: "thisorthat.html",
+        status: "Incomplete"
     });
     await setDoc(doc(db, "quests", "quest_3"), {
         quest_task: "Do a backflip",
         reward: "A random fish changes colour",
-        failure: "A random fish becomes blind",
-        page: "quiz.html"
+        failure: "Failure: A random fish becomes blind.",
+        page: "quiz.html",
+        status: "Incomplete"
     });
     await setDoc(doc(db, "quests", "quest_4"), {
         quest_task: "Win *game name* 3 times",
         reward: "You get a random fish cosmetic",
-        failure: "A random fish becomes ugly",
-        page: "thisorthat.html"
+        failure: "Failure: A random fish becomes ugly.",
+        page: "thisorthat.html",
+        status: "Incomplete"
     });
 }
 
@@ -161,7 +165,10 @@ function displayCardsDynamically(questData) {
             `Reward: ${quest.reward}.`;
 
         newcard.querySelector(".card-length").textContent =
-            `Failure: ${quest.failure}.`;
+            `${quest.failure}`;
+
+        newcard.querySelector(".status").textContent =
+            `${quest.status}`;
 
         if (quest.page) {
             newcard.querySelector("a").href = quest.page;

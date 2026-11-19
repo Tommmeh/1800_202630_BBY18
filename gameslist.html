@@ -20,7 +20,7 @@
     <!-- Your HTML Layout go here -->
     <!------------------------------>
     <!-- Stuff for body goes here -->
-     
+
     <!-- Navbar -->
 <nav class="phsh-navbar">
     <div class="navbar-container">
@@ -43,54 +43,20 @@
 </nav>
 
     <main>
-        <section class="py-5 text-center container">
-            <div class="row lg:py-5">
+        <section class="pt-5 text-center container">
+            <div class="row lg:pb-">
                 <div class="lg:col-6 md:col-8 mx-auto">
-                    <h1 class="fw-light">Games</h1>
+                    <h1 class="fw-bold">Games</h1>
                     <p class="fs-lg fw-light fg-2">Play our fun minigames</p>
                 </div>
             </div>
         </section>
         <div class="album py-3 bg-1">
         <div class="container">
-            <!--Filter popup-->
-            <div class="d-flex gap-2 justify-content-end py-3">
-                <div class="d-flex align-items-center">
-                    <form class="w-100 me-3" role="search">
-                        <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
-                    </form>
 
-                    <div class="flex-shrink-0 dropdown">
-                        <a href="#" class="d-block link-body-emphasis text-decoration-none" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            <button class="btn btn-primary d-inline-flex align-items-center dropdown-toggle"
-                                type="button">
-                                Filter
-
-                            </button>
-                        </a>
-                        <ul class="dropdown-menu text-small shadow">
-                            <li>
-                                <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="#"> <span
-                                        class="d-inline-block bg-success rounded-circle p-1"></span>
-                                    Bookmarked
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="#"> <span
-                                        class="d-inline-block bg-primary rounded-circle p-1"></span>
-                                    Non-bookedmarked
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!--End Filter popup-->
-        
 <div class="album py-5 bg-light">
     <div class="container">
-        
+
 
         <!-- Games Cards -->
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3"
@@ -122,14 +88,9 @@
                     <div class="btn-group">
 
                         <a href="quiz.html"
-                           class="btn btn-primary btn-sm">
-                            Start Quiz
-                        </a>
+                           class="game_button btn btn-primary btn-sm">
 
-                        <button type="button"
-                                class="btn btn-outline-secondary btn-sm favorite-btn">
-                            Favorite
-                        </button>
+                        </a>
 
                     </div>
 
@@ -169,7 +130,7 @@
     <!-- Link to scripts of your own -->
     <script type="module" src="./src/main.js"></script>
     <script type="module" src="./src/games.js"></script>
-    
+
 
 </body>
 
