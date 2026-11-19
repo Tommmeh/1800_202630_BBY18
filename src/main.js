@@ -2,8 +2,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap';
 import '../styles/style.css';
 
-import { auth } from "./firebase.js";
+import { db, auth } from "./firebase.js";
 import { signOut, onAuthStateChanged } from "firebase/auth";
+import {
+    collection,
+    doc,
+    getDocs,
+    getDoc,
+    setDoc
+} from "firebase/firestore";
 
 /**
  * Returns a random integer between min (inclusive) and max (inclusive).
@@ -48,6 +55,96 @@ function fishInterval() {
 
 }
 
+
+
+
+// Get or assign hunger for this user
+async function getUserHunger(user) {
+  const userRef = doc(db, "users", user.uid);
+  const userSnapshot = await getDoc(userRef);
+
+  const now = Date.now();
+
+  // Check if this user already has hunger
+  if (userSnapshot.exists()) {
+    const userData = userSnapshot.data();
+
+    if (
+      userData.HungerExpiresAt &&
+      userData.HungerExpiresAt > now
+    ) {
+      console.log("Loading saved hunger");
+      return userData;
+    }
+  }
+
+  // Assign a new Hunger set if none exist or they expired
+  console.log("Assigning new Hunger");
+
+  const assignedAt = Date.now();
+  const expiresAt = assignedAt + (48 * 60 * 60 * 1000);
+
+  const HungerData = {
+    HungerAssignedAt: assignedAt,
+    HungerExpiresAt: expiresAt,
+  };
+
+  // Save quest information to the user's existing document
+  await setDoc(userRef, HungerData, { merge: true });
+
+  return HungerData;
+}
+
+
+
+
+
+// Countdown timer based on the saved expiration time
+function startHunger(expiresAt) {
+  const HungerBar = document.getElementById("HungerBar");
+
+  function updateHunger() {
+    let timeLeft = expiresAt - Date.now();
+
+    if (timeLeft <= 0) {
+      console.log("Your fish starved.")
+      clearInterval(countdown);
+      return;
+    }
+    let BarWidth = Math.floor(expiresAt / Date.now())*100;
+    HungerBar.style.width = BarWidth + "%";
+  }
+  updateHunger();
+
+  const countdown = setInterval(updateHunger, 1000);
+}
+
+
+// Load Hunger for the logged-in user
+async function loadHunger(user) {
+
+  const HungerData = await getUserHunger(user);
+
+  startHunger(HungerData.HungerExpiresAt);
+}
+
+
+
+
+
+// Wait until Firebase knows who is logged in
+onAuthStateChanged(auth, async (user) => {
+  if (!user) {
+    console.log("No user logged in. Hunger not loaded.");
+    return;
+  }
+
+  try {
+    await loadHunger(user);
+  } catch (error) {
+    console.error("Error loading Hunger:", error);
+  }
+});
 
 
 // Add a Log out button to the nav (only when logged in)
