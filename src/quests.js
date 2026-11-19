@@ -99,7 +99,7 @@ async function generateQuestSet() {
     quests = shuffleQuests(quests);
 
     // Randomly choose 1–3 quests
-    let numberOfQuests = Math.floor(Math.random() * 3) + 1;
+    let numberOfQuests = 2;
 
     return quests.slice(0, numberOfQuests);
 }
@@ -132,7 +132,6 @@ async function getUserQuests(user) {
     const newQuests = await generateQuestSet();
 
     const assignedAt = Date.now();
-
     const expiresAt = assignedAt + (48 * 60 * 60 * 1000);
 
     const questData = {
@@ -194,7 +193,6 @@ function startQuestTimer(expiresAt) {
         }
 
         const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-
         const hours = Math.floor(
             (timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
         );
