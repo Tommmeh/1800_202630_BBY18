@@ -155,8 +155,7 @@ onAuthStateChanged(auth, (user) => {
   // 1. Make the button
   const logoutBtn = document.createElement("button");
   logoutBtn.textContent = "Log out";
-  logoutBtn.className = "btn btn-outline-light btn-sm position-absolute top-0 end-0 m-3";
-
+  logoutBtn.className = "btn phsh-logout position-absolute top-0 end-0 m-3";
   // 2. Make it log out when clicked
   logoutBtn.addEventListener("click", async () => {
     await signOut(auth);

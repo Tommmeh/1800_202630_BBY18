@@ -5,8 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Phishing Quiz | Phsh Game</title>
+    <link rel="icon" type="image/png" href="./images/phshing-logo.png">
 
     <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./styles/style.css">
 </head>
 
 <body class="bg-light">
@@ -14,9 +16,9 @@
     <header class="bg-dark text-white py-3">
         <div class="container d-flex justify-content-between align-items-center">
             <h1 class="h4 mb-0">Phsh Game</h1>
-            <a href="gameslist.html" class="btn btn-outline-light btn-sm">
-                Back to Games
-            </a>
+            <div class="text-center mt-3">
+                
+            </div>
         </div>
     </header>
 
@@ -45,8 +47,7 @@
 
                         <div id="answer-options">
                             <div class="form-check border rounded p-3 mb-2">
-                                <input class="form-check-input ms-0 me-2"
-                                    type="radio" name="answer" id="answer-a"
+                                <input class="form-check-input ms-0 me-2" type="radio" name="answer" id="answer-a"
                                     value="a">
                                 <label class="form-check-label" for="answer-a">
                                     Click the link immediately
@@ -54,8 +55,7 @@
                             </div>
 
                             <div class="form-check border rounded p-3 mb-2">
-                                <input class="form-check-input ms-0 me-2"
-                                    type="radio" name="answer" id="answer-b"
+                                <input class="form-check-input ms-0 me-2" type="radio" name="answer" id="answer-b"
                                     value="b">
                                 <label class="form-check-label" for="answer-b">
                                     Verify the email through the official website
@@ -63,8 +63,7 @@
                             </div>
 
                             <div class="form-check border rounded p-3 mb-2">
-                                <input class="form-check-input ms-0 me-2"
-                                    type="radio" name="answer" id="answer-c"
+                                <input class="form-check-input ms-0 me-2" type="radio" name="answer" id="answer-c"
                                     value="c">
                                 <label class="form-check-label" for="answer-c">
                                     Reply with your password
@@ -79,8 +78,7 @@
                                 Submit Answer
                             </button>
 
-                            <button id="next-button"
-                                class="btn btn-secondary" hidden>
+                            <button id="next-button" class="btn btn-secondary" hidden>
                                 Next Question
                             </button>
                         </div>
@@ -88,12 +86,16 @@
                     </div>
                 </div>
 
-                <p id="final-score" class="text-center mt-4 fw-bold"
-                    aria-live="polite"></p>
-
+                <p id="final-score" class="text-center mt-4 fw-bold" aria-live="polite"></p>
+                <div class="text-center mt-3">
+                    <a href="gameslist.html" class="quiz-back-link">
+                        ← Back to Games
+                    </a>
+                </div>
             </div>
         </div>
     </main>
     <script type="module" src="/src/quiz.js"></script>
 </body>
+
 </html>
