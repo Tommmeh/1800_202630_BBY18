@@ -1,3 +1,32 @@
+/* #disable_interaction {
+    filter: grayscale(100%) brightness(50%);
+    background-color: rgb(231, 231, 231);
+}
+
+#death_text {
+    z-index: 10;
+    left: 0;
+    line-height: 75px;
+    margin-top: -100px;
+    position: fixed;
+    text-align: center;
+    top: 50%;
+    width: 100%;
+    background-color: rgb(0, 0, 0);
+}
+
+#death_text p {
+    color: red;
+    font-size: 3em;
+    padding: 0px;
+    margin: 0px;
+}
+
+#death_button {
+    color: white;
+    background-color: red;
+} */
+
 .tank{
     width:90%;
     margin-left:5%;
