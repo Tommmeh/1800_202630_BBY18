@@ -17,8 +17,18 @@
     padding:3px;
     width:30%;
 }
+.flipped {
+  transform: scaleX(-1);
+}
 
 #BarLabel{
+    height:50px;
+    margin-left:10%;
+    padding:3px;
+    width:15%;
+    text-align:bottom;
+}
+#FishAge{
     height:50px;
     margin-left:10%;
     padding:3px;

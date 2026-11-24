@@ -7,6 +7,8 @@ import { signOut, onAuthStateChanged } from "firebase/auth";
 import { Fish } from "./fish.js";
 
 // Tie the fish on the page to the user's first fish in Firestore
+
+
 onAuthStateChanged(auth, async (user) => {
   const fishEl = document.getElementById("fish");
   if (!user || !fishEl) return;
@@ -14,11 +16,11 @@ onAuthStateChanged(auth, async (user) => {
   myFish.listen(() => myFish.applyTo(fishEl));
 });
 import {
-    collection,
-    doc,
-    getDocs,
-    getDoc,
-    setDoc
+  collection,
+  doc,
+  getDocs,
+  getDoc,
+  setDoc
 } from "firebase/firestore";
 
 /**
@@ -36,6 +38,7 @@ function getRandomInt(min, max) {
 
 globalThis.PosX = 0
 globalThis.PosY = 0
+globalThis.fishDirection = "Right"
 
 setInterval(fishInterval, 5000);
 
@@ -44,7 +47,18 @@ function fishInterval() {
   const prevPosY = PosY
   PosX = getRandomInt(0, 92)
   PosY = getRandomInt(0, 92)
-
+  if (PosX < prevPosX) {
+    if (fishDirection == "Right") {
+      fishDirection = "Left"
+      document.getElementById("fish").classList.toggle('flipped');
+    }
+  }
+  else {
+    if (fishDirection == "Left") {
+      fishDirection = "Right"
+      document.getElementById("fish").classList.toggle('flipped');
+    }
+  }
   document.getElementById("fish").animate(
     [
       { // from parameters
@@ -63,7 +77,38 @@ function fishInterval() {
   );
 
 }
-
+const prevPosX = PosX
+const prevPosY = PosY
+PosX = getRandomInt(0, 92)
+PosY = getRandomInt(0, 92)
+if (PosX < prevPosX) {
+  if (fishDirection == "Right") {
+    fishDirection = "Left"
+    document.getElementById("fish").classList.toggle('flipped');
+  }
+}
+else {
+  if (fishDirection == "Left") {
+    fishDirection = "Right"
+    document.getElementById("fish").classList.toggle('flipped');
+  }
+}
+document.getElementById("fish").animate(
+  [
+    { // from parameters
+      left: prevPosX + "%",   // you can set this dynamically
+      top: prevPosY + "%"    // you can set this dynamically
+    },
+    { // to parameters
+      left: PosX + "%", // you can set this dynamically
+      top: PosY + "%"  // you can set this dynamically
+    }
+  ],
+  {
+    duration: 5000,
+    iterations: Infinity
+  }
+);
 
 
 
@@ -109,8 +154,9 @@ async function getUserHunger(user) {
 
 
 // Countdown timer based on the saved expiration time
-function startHunger(expiresAt) {
+function startHunger(expiresAt, assignedAt) {
   const HungerBar = document.getElementById("HungerBar");
+  const FishAge = document.getElementById("FishAge")
 
   function updateHunger() {
     let timeLeft = expiresAt - Date.now();
@@ -120,8 +166,22 @@ function startHunger(expiresAt) {
       clearInterval(countdown);
       return;
     }
-    let BarWidth = Math.floor((Date.now() / expiresAt)*100);
+    let BarWidth = Math.floor((Date.now() / expiresAt) * 100);
     HungerBar.style.width = BarWidth + "%";
+    let Age = (Date.now() - assignedAt)
+    const days = Math.floor(Age / (1000 * 60 * 60 * 24));
+    const hours = Math.floor(
+      (Age % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    );
+    const minutes = Math.floor(
+      (Age % (1000 * 60 * 60)) / (1000 * 60)
+    );
+    const seconds = Math.floor(
+      (Age % (1000 * 60)) / 1000
+    );
+
+    FishAge.textContent =
+      `Age: ${days}d ${hours}h ${minutes}m ${seconds}s`;
   }
   updateHunger();
 
@@ -133,8 +193,7 @@ function startHunger(expiresAt) {
 async function loadHunger(user) {
 
   const HungerData = await getUserHunger(user);
-
-  startHunger(HungerData.HungerExpiresAt);
+  startHunger(HungerData.HungerExpiresAt, HungerData.HungerAssignedAt);
 }
 
 
