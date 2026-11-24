@@ -13,30 +13,30 @@ import { onAuthStateChanged } from "firebase/auth";
 async function setQuestData() {
 
     await setDoc(doc(db, "quests", "quest_1"), {
-        quest_task: "Score 3/3 in 'Phishing quiz'",
-        reward: "Gain +1 Fish food",
+        quest_task: "Score 3/3 in 'Phishing quiz",
+        reward: "Feed your fish a little bit of food",
         failure: "",
         page: "quiz.html",
         status: "Incomplete"
     });
     await setDoc(doc(db, "quests", "quest_2"), {
-        quest_task: "Score over 80% on a quiz",
-        reward: "You get a new fish!",
-        failure: "Failure: A random fish DIES.",
-        page: "thisorthat.html",
+        quest_task: "Complete a game of whack a fish",
+        reward: "Feed your fish a lot of food",
+        failure: "",
+        page: "whackaphish.html",
         status: "Incomplete"
     });
     await setDoc(doc(db, "quests", "quest_3"), {
         quest_task: "Do a backflip",
-        reward: "A random fish changes colour",
-        failure: "Failure: A random fish becomes blind.",
+        reward: "Kill your fish",
+        failure: "",
         page: "quiz.html",
         status: "Incomplete"
     });
     await setDoc(doc(db, "quests", "quest_4"), {
-        quest_task: "Win *game name* 3 times",
-        reward: "You get a random fish cosmetic",
-        failure: "Failure: A random fish becomes ugly.",
+        quest_task: "Score 5/5 in 1 game of This or That",
+        reward: "Feed your fish some food",
+        failure: "",
         page: "thisorthat.html",
         status: "Incomplete"
     });
