@@ -4,11 +4,8 @@ import '../styles/style.css';
 
 import { db, auth } from "./firebase.js";
 import { signOut, onAuthStateChanged } from "firebase/auth";
-import { Fish } from "./fish.js";
 
-import "bootstrap-icons/font/bootstrap-icons.css";
 
-// Tie the fish on the page to the user's first fish in Firestore
 
 
 
@@ -24,14 +21,6 @@ onAuthStateChanged(auth, async (user) => {
   if (heading) {
     const username = user.displayName || user.email.split("@")[0];
     heading.textContent = `Hello, ${username}!`;
-  }
-
-  // Load the user's fish
-  const fishEl = document.getElementById("fish");
-
-  if (fishEl) {
-    const [myFish] = await Fish.loadOrCreate(user.uid);
-    myFish.listen(() => myFish.applyTo(fishEl));
   }
 
 });
