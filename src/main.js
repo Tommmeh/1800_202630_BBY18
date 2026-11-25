@@ -8,6 +8,18 @@ import { Fish } from "./fish.js";
 
 // Tie the fish on the page to the user's first fish in Firestore
 
+function onAuthReady(callback) {
+  return onAuthStateChanged(auth, callback);
+}
+
+onAuthReady(function (user) {
+  if (!user) {
+    location.href = "index.html";   // Not logged in → go away
+    return;
+  }
+});
+
+
 
 onAuthStateChanged(auth, async (user) => {
   const fishEl = document.getElementById("fish");
