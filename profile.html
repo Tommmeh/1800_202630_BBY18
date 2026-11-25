@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,80 +14,55 @@
 <body>
 
     <!-- Navbar -->
-<nav class="phsh-navbar">
-    <div class="navbar-container">
+    <nav class="phsh-navbar">
+        <div class="navbar-container">
 
-        <!-- Centered logo -->
-        <a href="index.html" class="navbar-logo">
-            <img src="./images/School_of_Phish_Logo.png" alt="Phshing logo">
-        </a>
+            <!-- Centered logo -->
+            <a href="index.html" class="navbar-logo">
+                <img src="./images/School_of_Phish_Logo.png" alt="Phshing logo">
+            </a>
 
-        <!-- Navigation links -->
-        <ul class="navbar-links">
-            <li><a href="homepage.html">Home</a></li>
-            <li><a href="gameslist.html">Games</a></li>
-            <li><a href="#">Settings</a></li>
-            <li><a href="profile.html">Profile</a></li>
-        </ul>
+            <!-- Navigation links -->
+            <ul class="navbar-links">
+                <li><a href="homepage.html">Home</a></li>
+                <li><a href="gameslist.html">Games</a></li>
+                <li><a href="profile.html">Profile</a></li>
+            </ul>
 
-    </div>
-</nav>
+        </div>
+    </nav>
 
     <main class="container my-5">
         <h1>My Profile</h1>
         <p>View and manage your account information.</p>
+        <div class="row g-4 mt-3">
 
-        <div class="card p-4 mt-4">
-
-            <div class="text-center mb-4">
-                <div id="avatar" class="rounded-circle bg-primary text-white d-inline-flex justify-content-center align-items-center" style="width: 80px; height: 80px; font-size: 30px;">
-                    ?
-                </div>
-
-                <h3 id="profileName" class="mt-3">Loading...</h3>
-                <p id="profileEmail"></p>
+            <div class="col-md-6">
+                <a href="account.html" class="text-decoration-none">
+                    <div class="card p-4 h-100">
+                        <h2>Account Information</h2>
+                        <p>View and manage your profile and favourite games.</p>
+                    </div>
+                </a>
             </div>
 
-            <form id="profileForm">
+            <div class="col-md-6">
+                <a href="accessibility.html" class="text-decoration-none">
+                    <div class="card p-4 h-100">
+                        <h2>Accessibility Settings</h2>
+                        <p>Customize your viewing experience and Dark Mode.</p>
+                    </div>
+                </a>
+            </div>
 
-                <div class="mb-3">
-                    <label for="nameInput" class="form-label">Name</label>
-                    <input type="text" id="nameInput" class="form-control" disabled>
-                </div>
-
-                <div class="mb-3">
-                    <label for="countryInput" class="form-label">Country</label>
-                    <input type="text" id="countryInput" class="form-control" disabled>
-                </div>
-
-                <div class="mb-3">
-                    <label for="schoolInput" class="form-label">School</label>
-                    <input type="text" id="schoolInput" class="form-control" disabled>
-                </div>
-
-                <div class="mb-3">
-                    <label for="bioInput" class="form-label">Bio</label>
-                    <textarea id="bioInput" class="form-control" rows="3" disabled></textarea>
-                </div>
-
-                <div class="d-flex gap-2">
-                    <button type="button" id="editBtn" class="btn btn-primary">
-                        Edit Profile
-                    </button>
-
-                    <button type="submit" id="saveBtn" class="btn btn-success" disabled>
-                        Save Changes
-                    </button>
-                </div>
-
-                <div id="profileAlert" class="alert alert-success d-none mt-3"></div>
-
-            </form>
         </div>
+
+
     </main>
 
     <site-footer></site-footer>
 
     <script type="module" src="./src/profile.js"></script>
 </body>
+
 </html>

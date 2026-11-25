@@ -3,7 +3,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { setDoc } from "firebase/firestore";
 
 const form = document.getElementById("login-form");
-form.addEventListener("submit", (e) => {
+fform.addEventListener("submit", async (e) => {
     e.preventDefault();
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;

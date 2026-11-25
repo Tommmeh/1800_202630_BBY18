@@ -6,11 +6,15 @@ import { onAuthStateChanged } from "firebase/auth";
 import {
     doc,
     getDoc,
-    setDoc
+    setDoc,
+    collection,
+    getDocs
 } from "firebase/firestore";
 
 // Fields stored in Firestore
 const fields = ["name", "country", "school", "bio"];
+const favouriteGamesContainer = document.getElementById("favourite-games-go-here");
+const favouriteGameTemplate = document.getElementById("favouriteGameCardTemplate");
 
 let currentUser = null;
 
@@ -29,6 +33,9 @@ onAuthStateChanged(auth, async function (user) {
     const userDoc = await getDoc(userRef);
 
     const data = userDoc.exists() ? userDoc.data() : {};
+    const favourites = data.favourites || [];
+
+    displayFavouriteGames(favourites);
 
     // Display profile information
     showHeader(
@@ -115,5 +122,26 @@ async function saveProfile(event) {
 
     }
 }
+async function displayFavouriteGames(favourites) {
+    const snapshot = await getDocs(collection(db, "games"));
 
+    snapshot.forEach(function (doc) {
+        if (favourites.includes(doc.id)) {
+            const game = doc.data();
+
+            const newCard = favouriteGameTemplate.content.cloneNode(true);
+
+            newCard.querySelector(".card-title").textContent = game.Name;
+            newCard.querySelector(".card-text").textContent = game.Description;
+            newCard.querySelector(".game-image").src = game.ImageURL;
+            newCard.querySelector(".game_button").textContent = game.Button;
+
+            if (game.Page) {
+                newCard.querySelector("a").href = game.Page;
+            }
+
+            favouriteGamesContainer.appendChild(newCard);
+        }
+    });
+}
 document.getElementById("profileForm").addEventListener("submit", saveProfile);

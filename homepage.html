@@ -23,7 +23,7 @@
     <!------------------------------>
     <!-- Stuff for body goes here -->
 
-<!--
+    <!--
 <div id="death_text">
     <img src="/images/fish_bubbles.png" alt="grayscale_bubbles_death" width="10%">
     <p><b>YOUR FISH DIED</b></p>
@@ -44,7 +44,6 @@
                 <ul class="navbar-links">
                     <li><a href="homepage.html">Home</a></li>
                     <li><a href="gameslist.html">Games</a></li>
-                    <li><a href="#">Settings</a></li>
                     <li><a href="profile.html">Profile</a></li>
                 </ul>
 
@@ -54,13 +53,25 @@
         <section class="pt-5 text-center container">
             <div class="row lg:py-5">
                 <div class="lg:col-6 md:col-8 mx-auto">
-                    <h1 class="fw-bold">Homepage</h1>
-                    <p class="fs-lg fw-light fg-2">Complete daily quests to feed your fish!</p>
+                    <h1 class="fw-bold" id="welcome-heading">Hello!</h1>
+
+                    <h2 class="fw-bold">
+                        Your Phsh adventure starts here! 🐠
+                    </h2>
+
+                    <p class="fs-5">
+                        Finish your daily quests and keep your little Phsh happy,
+                        healthy and <b>ALIVE!💀</b>
+                    </p>
                 </div>
             </div>
         </section>
 
-        <div id="FishAge"></div>
+        <div class="fish-age-card">
+            <h3>🐠 Your Phsh Age</h3>
+            <h2 id="FishAge">Loading...</h2>
+            <p>Your little buddy's age</p>
+        </div>
         <div class="tank">
             <div id="fish"></div>
         </div>

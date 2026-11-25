@@ -32,44 +32,86 @@
     background-color: red;
 } */
 
-.tank{
-    width:90%;
-    margin-left:5%;
-    margin-top:5%;
+/* Light mode colours */
+/* Light mode colours */
+
+:root {
+    --background: #EAF4F8;
+    --primary: #123B5D;
+    --secondary: #1F6E8C;
+    --accent: #63B3D1;
+}
+
+.tank {
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 5%;
     background-image: url("/images/ocean_bg.png");
     background-size: cover;
     aspect-ratio: 16/9;
 }
-#HungerBar{
-    height:100%;
+
+#HungerBar {
+    height: 100%;
     background-image: url("/images/fish_flakes.png");
     background-size: contain;
 }
 
-#BarFrame{
-    background-color:black;
+#BarFrame {
+    background-color: black;
     aspect-ratio: 20/2;
-    margin-left:10%;
-    padding:3px;
-    width:50%;
-}
-.flipped {
-  transform: scaleX(-1);
+    margin-left: 10%;
+    padding: 3px;
+    width: 50%;
 }
 
-#BarLabel{
-    height:50px;
-    margin-left:10%;
-    padding:3px;
-    width:15%;
-    text-align:bottom;
+.flipped {
+    transform: scaleX(-1);
 }
-#FishAge{
-    height:50px;
-    margin-left:10%;
-    padding:3px;
-    width:15%;
-    text-align:bottom;
+
+#BarLabel {
+    height: 50px;
+    margin-left: 10%;
+    padding: 3px;
+    width: 15%;
+    text-align: bottom;
+}
+
+/* Phsh Age Card */
+.fish-age-card {
+    width: fit-content;
+    max-width: 95%;
+    margin: 20px auto;
+    padding: 15px 30px;
+    background-color: var(--secondary);
+    border: 2px solid var(--accent);
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(18, 59, 93, 0.10);
+}
+
+/* Phsh Age heading */
+.fish-age-card h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: var(--primary);
+}
+
+/* Live age timer */
+.fish-age-card h2 {
+    font-size: 24px;
+    font-weight: bold;
+    white-space: nowrap;
+    margin-bottom: 5px;
+    color: var(--primary);
+}
+
+/* Age description */
+.fish-age-card p {
+    margin: 0;
+    font-size: 14px;
+    color: var(--primary);
 }
 
 #fish {
@@ -82,17 +124,17 @@
 
 /* Phshing navbar theme */
 .phsh-navbar {
-    background: #123B5D !important;
-    background-color: #123B5D !important;
-    border-bottom: 2px solid #1F6E8C !important;
+    background: var(--primary) !important;
+    background-color: var(--primary) !important;
+    border-bottom: 2px solid var(--secondary) !important;
 }
 
 .phsh-navbar .nav-link {
-    color: white !important;
+    color: var(--accent) !important;
 }
 
 .phsh-navbar .nav-link:hover {
-    color: #63B3D1 !important;
+    color: var(--accent) !important;
 }
 
 /* Logout button */
@@ -100,22 +142,23 @@
     font-size: 16px;
     padding: 10px 20px;
     border-radius: 8px;
-    background-color: #1F6E8C;
+    background-color: var(--secondary);
     color: white;
-    border: 2px solid #63B3D1;
+    border: 2px solid var(--accent);
     font-weight: 600;
 }
 
 /* Logout button hover */
 .phsh-logout:hover {
-    background-color: #63B3D1;
-    color: #123B5D;
-    border-color: #63B3D1;
+    background-color: var(--accent);
+    color: var(--primary);
+    border-color: var(--accent);
 }
+
 /* Navbar */
 .phsh-navbar {
-    background-color: #123B5D;
-    border-bottom: 2px solid #1F6E8C;
+    background-color: var(--primary);
+    border-bottom: 2px solid var(--secondary);
     width: 100%;
 }
 
@@ -152,15 +195,16 @@
 }
 
 .navbar-links a:hover {
-    color: #63B3D1;
+    color: var(--accent);
 }
+
 /* ============================= */
 /* PHSHING NAVBAR */
 /* ============================= */
 
 .phsh-navbar {
-    background-color: #123B5D;
-    border-bottom: 2px solid #1F6E8C;
+    background-color: var(--primary);
+    border-bottom: 2px solid var(--secondary);
     width: 100%;
 }
 
@@ -207,7 +251,7 @@
 }
 
 .navbar-links a:hover {
-    color: #63B3D1 !important;
+    color: var(--accent);
 }
 
 /* Phshing Logout Button */
@@ -215,35 +259,40 @@
     font-size: 18px;
     padding: 12px 24px;
     border-radius: 10px;
-    background-color: #1F6E8C;
-    color: white;
-    border: 2px solid #63B3D1;
+    background-color: var(--secondary);
+    background-color: var(--secondary);
+    border: 2px solid var(--accent);
     font-weight: 600;
 }
 
 .phsh-logout:hover {
-    background-color: #63B3D1;
-    color: #123B5D;
-    border-color: #63B3D1;
+    background-color: var(--accent);
+    color: var(--primary);
+    border-color: var(--accent);
 }
+
 /* Global Phshing ocean theme */
 body {
-    background-color: #EAF4F8;
+    background-color: var(--background);
 }
 
 /* Main headings */
-h1, h2, h3, h4 {
-    color: #123B5D;
+h1,
+h2,
+h3,
+h4 {
+    color: var(--primary);
 }
 
 /* Main content text */
 body {
-    color: #123B5D;
+    color: var(--primary);
 }
+
 /* Global ocean background */
 body {
-    background-color: #EAF4F8;
-    color: #123B5D;
+    background-color: var(--background);
+    color: var(--primary);
     min-height: 100vh;
     position: relative;
     isolation: isolate;
@@ -266,7 +315,7 @@ body::after {
 body::before {
     bottom: -120px;
     height: 250px;
-    background-color: #D5EAF3;
+    background-color: var(--secondary);
     transform: rotate(-3deg);
 }
 
@@ -274,106 +323,109 @@ body::before {
 body::after {
     bottom: -170px;
     height: 250px;
-    background-color: #B8DCEB;
+    background-color: var(--accent);
     transform: rotate(3deg);
 }
+
 /* Quiz page theme */
-body > header {
-    background-color: #123B5D !important;
+body>header.bg-dark {
+    background-color: var(--primary) !important;
+}
+
+body>header h1 {
     color: white;
 }
 
-body > header h1 {
+body>header a {
+    border-color: var(--accent);
     color: white;
 }
 
-body > header a {
-    border-color: #63B3D1;
-    color: white;
-}
-
-body > header a:hover {
-    background-color: #63B3D1;
-    color: #123B5D;
+body>header a:hover {
+    background-color: var(--accent);
+    color: var(--primary);
 }
 
 /* Quiz card */
-body > main .card {
-    border: 1px solid #D5EAF3;
+body>main .card {
+    border: 1px solid var(--secondary);
     border-radius: 16px;
-    background-color: white;
+    background-color: var(--background);
 }
 
 /* Quiz heading */
-body > main h2 {
-    color: #123B5D;
+body>main h2 {
+    color: var(--primary);
 }
 
 /* Answer choices */
 #answer-options .form-check {
-    border-color: #D5EAF3 !important;
+    border-color: var(--secondary) !important;
     border-radius: 10px;
     transition: 0.2s;
 }
 
 #answer-options .form-check:hover {
-    background-color: #EAF4F8;
-    border-color: #63B3D1 !important;
+    background-color: var(--background);
+    border-color: var(--accent) !important;
 }
 
 /* Radio buttons */
 #answer-options .form-check-input:checked {
-    background-color: #1F6E8C;
-    border-color: #1F6E8C;
+    background-color: var(--secondary);
+    border-color: var(--secondary);
 }
 
 /* Quiz buttons */
 #submit-button {
-    background-color: #1F6E8C;
-    border-color: #1F6E8C;
+    background-color: var(--secondary);
+    border-color: var(--secondary);
 }
 
 #submit-button:hover {
-    background-color: #123B5D;
-    border-color: #123B5D;
+    background-color: var(--primary);
+    border-color: var(--primary);
 }
 
 #next-button {
-    background-color: #63B3D1;
-    border-color: #63B3D1;
-    color: #123B5D;
+    background-color: var(--accent);
+    border-color: var(--accent);
+    color: var(--primary);
 }
 
 #next-button:hover {
-    background-color: #1F6E8C;
-    border-color: #1F6E8C;
+    background-color: var(--secondary);
+    border-color: var(--secondary);
     color: white;
 }
+
 /* Force quiz navbar to Phshing navy */
-body > header.bg-dark {
-    background-color: #123B5D !important;
+body>header.bg-dark {
+    background-color: var(--primary) !important;
 }
+
 .quiz-back-link {
     display: inline-block;
-    color: #1F6E8C;
+    color: var(--secondary);
     text-decoration: none;
     font-weight: 600;
     padding: 10px 18px;
-    border: 1px solid #63B3D1;
+    border: 1px solid var(--accent);
     border-radius: 10px;
     transition: 0.2s;
 }
 
 .quiz-back-link:hover {
-    background-color: #1F6E8C;
+    background-color: var(--secondary);
     color: white;
 }
+
 /* This or That game page */
 .thisorthat-card {
     max-width: 850px;
     margin: 20px auto;
-    background: white;
-    border: 1px solid #D5EAF3;
+    background: var(--background);
+    border: 1px solid var(--secondary);
     border-radius: 20px;
     padding: 35px !important;
     box-shadow: 0 6px 20px rgba(18, 59, 93, 0.10);
@@ -383,61 +435,61 @@ body > header.bg-dark {
 
 /* Game title */
 .thisorthat-card h2 {
-    color: #123B5D;
+    color: var(--primary);
     font-weight: 700;
 }
 
 /* Real link choices */
 #left-btn,
 #right-btn {
-    background-color: #EAF4F8;
-    color: #123B5D;
-    border: 2px solid #D5EAF3;
+    background-color: var(--background);
+    color: var(--primary);
+    border: 2px solid var(--secondary);
     border-radius: 12px;
     transition: 0.2s ease;
 }
 
 #left-btn:hover,
 #right-btn:hover {
-    background-color: #D5EAF3;
-    border-color: #63B3D1;
-    color: #123B5D;
+    background-color: var(--secondary);
+    border-color: var(--accent);
+    color: var(--primary);
 }
 
 /* Next button */
 #next-btn {
-    background-color: #1F6E8C;
-    border-color: #1F6E8C;
+    background-color: var(--secondary);
+    border-color: var(--secondary);
     color: white;
     border-radius: 10px;
 }
 
 #next-btn:hover {
-    background-color: #123B5D;
-    border-color: #123B5D;
+    background-color: var(--primary);
+    border-color: var(--primary);
 }
 
 /* Game feedback and score */
 #feedback,
 #round-text,
 #score-text {
-    color: #123B5D;
+    color: var(--primary);
 }
 
 /* Back to Games link */
 .quiz-back-link {
     display: inline-block;
-    color: #1F6E8C;
+    color: var(--secondary);
     text-decoration: none;
     font-weight: 600;
     padding: 10px 18px;
-    border: 1px solid #63B3D1;
+    border: 1px solid var(--accent);
     border-radius: 10px;
     transition: 0.2s ease;
 }
 
 .quiz-back-link:hover {
-    background-color: #1F6E8C;
+    background-color: var(--secondary);
     color: white;
 }
 
@@ -453,6 +505,7 @@ body > header.bg-dark {
         font-size: 1rem !important;
     }
 }
+
 /* Whack-a-Phish */
 .phish-tank {
     background-color: #7fd6ec;
@@ -463,6 +516,29 @@ body > header.bg-dark {
 .hole {
     height: 100px;
     font-size: 2.5rem;
-    background-color: #123B5D;
+    background-color: var(--primary);
     border-radius: 50%;
+}
+
+/* ============================= */
+/* GAMES PAGE BACKGROUND */
+/* ============================= */
+
+body.games-page {
+    background-image: url("../images/Gamespage-background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+/* Dark mode for the entire app */
+/* Choose dark mode colours that coordinate with your main palette
+   with good contrast for readability. */
+
+html[data-bs-theme="dark"] {
+    --background: #123B5D;
+    --primary: #1F6E8C;
+    --secondary: #63B3D1;
+    --accent: #B8DCEB;
 }
