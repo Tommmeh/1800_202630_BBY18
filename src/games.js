@@ -5,16 +5,6 @@ import { signOut, onAuthStateChanged } from "firebase/auth";
 const gameTemplate = document.getElementById("gameCardTemplate");
 const gamesContainer = document.getElementById("games-go-here");
 
-function onAuthReady(callback) {
-    return onAuthStateChanged(auth, callback);
-}
-
-onAuthReady(function (user) {
-    if (!user) {
-        location.href = "index.html";   // Not logged in → go away
-        return;
-    }
-});
 
 
 async function displayGames() {

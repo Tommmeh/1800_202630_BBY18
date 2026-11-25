@@ -31,7 +31,8 @@
     width:90%;
     margin-left:5%;
     margin-top:5%;
-    background-color:aqua;
+    background-image: url("/images/ocean_bg.png");
+    background-size: cover;
     aspect-ratio: 16/9;
 }
 #HungerBar{
@@ -67,9 +68,10 @@
 
 #fish {
     width: 10%;
-    height: 7%;
+    height: 10%;
     position: relative;
-    background-color: orange;
+    background-image: url("/images/fish_bubbles.png");
+    background-size: cover;
 }
 
 /* Phshing navbar theme */
