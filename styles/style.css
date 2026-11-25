@@ -15,6 +15,11 @@
     background-color: rgb(0, 0, 0);
 }
 
+#death_text img{
+    margin-top: 10px;
+    filter: grayscale(100%) brightness(80%);
+}
+
 #death_text p {
     color: red;
     font-size: 3em;
