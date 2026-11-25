@@ -24,7 +24,6 @@ onAuthStateChanged(auth, async (user) => {
   }
 
 });
-
 import {
   collection,
   doc,
@@ -91,20 +90,20 @@ const prevPosX = PosX
 const prevPosY = PosY
 PosX = getRandomInt(0, 92)
 PosY = getRandomInt(0, 92)
-// if (PosX < prevPosX) {
-//   if (fishDirection == "Right") {
-//     fishDirection = "Left"
-//     document.getElementById("fish").classList.toggle('flipped');
-//     console.log("left");
-//   }
-// }
-// else {
-//   if (fishDirection == "Left") {
-//     fishDirection = "Right"
-//     document.getElementById("fish").classList.toggle('flipped');
-//     console.log("right");
-//   }
-// }
+if (PosX < prevPosX) {
+  if (fishDirection == "Right") {
+    fishDirection = "Left"
+    document.getElementById("fish").classList.toggle('flipped');
+    console.log("left");
+  }
+}
+else {
+  if (fishDirection == "Left") {
+    fishDirection = "Right"
+    document.getElementById("fish").classList.toggle('flipped');
+    console.log("right");
+  }
+}
 document.getElementById("fish").animate(
   [
     { // from parameters
