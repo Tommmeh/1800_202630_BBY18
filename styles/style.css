@@ -37,7 +37,8 @@
 }
 #HungerBar{
     height:100%;
-    background-color:orange;
+    background-image: url("/images/fish_flakes.png");
+    background-size: contain;
 }
 
 #BarFrame{
@@ -45,7 +46,7 @@
     aspect-ratio: 20/2;
     margin-left:10%;
     padding:3px;
-    width:30%;
+    width:50%;
 }
 .flipped {
   transform: scaleX(-1);
