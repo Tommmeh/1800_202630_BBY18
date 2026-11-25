@@ -1,7 +1,14 @@
-import { db } from "./firebase.js";
+import { db, auth } from "./firebase.js";
+
+import {
+    collection,
+    doc,
+    getDoc,
+    addDoc,
+    setDoc
+} from "firebase/firestore";
+
 import { onAuthStateChanged } from "firebase/auth";
-import { collection, addDoc } from "firebase/firestore";
-import { auth } from "/src/firebase.js";
 
 let currentUser = null;
 
@@ -169,6 +176,7 @@ nextButton.addEventListener("click", function () {
         nextButton.hidden = true;
         finalScore.textContent =
             `Your score: ${score} out of ${questions.length}`;
+        if (score == questions.length) { completeQuest() }
         newScore();
     }
 });
@@ -176,3 +184,96 @@ nextButton.addEventListener("click", function () {
 displayQuestion();
 
 // ---- (2) Connect it: "form, when you are submitted, run saveScore" ----
+
+// Get or assign quests for this user
+async function getUserQuests(user) {
+    const userRef = doc(db, "users", user.uid);
+    const userSnapshot = await getDoc(userRef);
+
+    const now = Date.now();
+
+    // Check if this user already has active quests
+    if (userSnapshot.exists()) {
+        const userData = userSnapshot.data();
+
+        if (
+            userData.assignedQuests &&
+            userData.questsExpiresAt &&
+            userData.questsExpiresAt > now
+        ) {
+            console.log("Loading saved quests");
+            return userData.assignedQuests;
+        }
+    }
+    // Save quest information to the user's existing document
+    await setDoc(userRef, questData, { merge: true });
+    return ("No Quest")
+}
+
+async function getUserHunger(user) {
+    const userRef = doc(db, "users", user.uid);
+    const userSnapshot = await getDoc(userRef);
+
+    const now = Date.now();
+
+    // Check if this user already has hunger
+    if (userSnapshot.exists()) {
+        const userData = userSnapshot.data();
+
+        if (
+            userData.HungerExpiresAt &&
+            userData.HungerExpiresAt > now
+        ) {
+            console.log("Loading saved hunger");
+            return userData;
+        }
+    }
+}
+
+async function completeQuest() {
+    if (loadedQuests != "No Quest") {
+        globalThis.questArray = []
+        loadedQuests.forEach((quest) => {
+            if (quest.id == "quest_1" && quest.status != "Complete") {
+                let questData = quest
+                questData.status = "Complete"
+                questArray.push(questData)
+
+                let expiresAt = UserData.HungerExpiresAt
+                let FoodAmount = (48 * 60 * 60 * 1000);
+
+                if (expiresAt + FoodAmount >= (Date.now() + (48 * 60 * 60 * 1000))) { expiresAt = Date.now() + (48 * 60 * 60 * 1000) }
+                else { expiresAt = expiresAt + FoodAmount }
+                HungerData = {
+                    HungerAssignedAt: UserData.HungerAssignedAt,
+                    HungerExpiresAt: expiresAt,
+                    assignedQuests: questArray
+                };
+            };
+        })
+        await setDoc(userRef, HungerData, { merge: true });
+    }
+}
+
+async function loadQuests(user) {
+
+    globalThis.loadedQuests = await getUserQuests(user);
+    globalThis.userRef = doc(db, "users", user.uid);
+    globalThis.UserData = await getUserHunger(user)
+    globalThis.HungerData = UserData
+}
+
+
+// Wait until Firebase knows who is logged in
+onAuthStateChanged(auth, async (user) => {
+    if (!user) {
+        console.log("No user logged in. Quests not loaded.");
+        return;
+    }
+
+    try {
+        await loadQuests(user);
+    } catch (error) {
+        console.error("Error loading quests:", error);
+    }
+});
