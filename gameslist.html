@@ -14,115 +14,115 @@
 
 </head>
 
-<body>
+<body class="games-page"></body>
 
-    <!------------------------------>
-    <!-- Your HTML Layout go here -->
-    <!------------------------------>
-    <!-- Stuff for body goes here -->
+<!------------------------------>
+<!-- Your HTML Layout go here -->
+<!------------------------------>
+<!-- Stuff for body goes here -->
 
-    <!-- Navbar -->
-    <nav class="phsh-navbar">
-        <div class="navbar-container">
+<!-- Navbar -->
+<nav class="phsh-navbar">
+    <div class="navbar-container">
 
         <!-- Centered logo -->
         <a href="index.html" class="navbar-logo">
             <img src="./images/School_of_Phish_Logo.png" alt="Phshing logo">
         </a>
 
-            <!-- Navigation links -->
-            <ul class="navbar-links">
-                <li><a href="homepage.html">Home</a></li>
-                <li><a href="gameslist.html">Games</a></li>
-                <li><a href="#">Settings</a></li>
-                <li><a href="profile.html">Profile</a></li>
-            </ul>
+        <!-- Navigation links -->
+        <ul class="navbar-links">
+            <li><a href="homepage.html">Home</a></li>
+            <li><a href="gameslist.html">Games</a></li>
+            <li><a href="profile.html">Profile</a></li>
+        </ul>
 
+    </div>
+</nav>
+
+<main>
+    <section class="pt-5 text-center container">
+        <div class="row lg:pb-">
+            <div class="lg:col-6 md:col-8 mx-auto">
+                <h1 class="fw-bold">Games</h1>
+                <p class="fs-lg fw-light fg-2">Play our fun minigames</p>
+            </div>
         </div>
-    </nav>
+    </section>
+    <div class="album py-3 bg-1">
+        <div class="container">
 
-    <main>
-        <section class="pt-5 text-center container">
-            <div class="row lg:pb-">
-                <div class="lg:col-6 md:col-8 mx-auto">
-                    <h1 class="fw-bold">Games</h1>
-                    <p class="fs-lg fw-light fg-2">Play our fun minigames</p>
+            <div class="album py-5 bg-light">
+                <div class="container">
+
+
+                    <!-- Games Cards -->
+                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" id="games-go-here">
+                    </div>
+
                 </div>
             </div>
-        </section>
-        <div class="album py-3 bg-1">
-            <div class="container">
 
-                <div class="album py-5 bg-light">
-                    <div class="container">
+            <!-- Game Card Template -->
+            <template id="gameCardTemplate">
+                <div class="col">
+                    <div class="card shadow-sm h-100">
 
+                        <img class="card-img-top game-image" src="" alt="Game Thumbnail" height="225"
+                            style="object-fit: cover;">
 
-                        <!-- Games Cards -->
-                        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" id="games-go-here">
-                        </div>
+                        <i class="bi bi-heart text-danger fs-4 fav-btn position-absolute top-0 end-0 m-2" role="button"
+                            title="Favourite"></i>
 
+                        <div class="card-body d-flex flex-column"></div>
+
+                        <h5 class="card-title"></h5>
+
+                        <p class="card-text">Description</p>
+
+                        <div>
+                            <div class="btn-group">
+                                <a href="quiz.html" class="game_button btn btn-primary btn-sm"></a>
+                            </div>
+                            <small class="text-muted">9 mins</small>
                     </div>
+
                 </div>
 
-                <!-- Game Card Template -->
-                <template id="gameCardTemplate">
-                    <div class="col">
-                        <div class="card shadow-sm h-100">
-
-                            <img class="card-img-top game-image" src="" alt="Game Thumbnail" height="225"
-                                style="object-fit: cover;">
-
-                            <div class="card-body">
-
-                                <h5 class="card-title"></h5>
-
-                                <p class="card-text">Description</p>
-
-                                <div class="d-flex justify-content-between align-items-center">
-
-                                    <div class="btn-group">
-
-                                        <a href="quiz.html" class="game_button btn btn-primary btn-sm">
-                                        </a>
-
-                                    </div>
-
-                                    <small class="text-muted">9 mins</small>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </template>
-
-    </main>
-
-    <div class="container">
-        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-            <div class="md:col-4 d-flex align-items-center"><a href="/"
-                    class="mb-3 me-2 md:mb-0 fg-2 text-decoration-none lh-1" aria-label="Bootstrap"><svg class="bi"
-                        width="30" height="24" aria-hidden="true">
-                        <use href="#bootstrap"></use>
-                    </svg></a><span class="mb-3 md:mb-0 fg-2">© 2026 Company, Inc</span></div>
-            <ul class="nav md:col-4 justify-content-end list-unstyled d-flex">
-                <li class="ms-3"><a class="fg-2" href="#" aria-label="Instagram"><svg class="bi" width="24" height="24"
-                            aria-hidden="true">
-                            <use href="#instagram"></use>
-                        </svg></a></li>
-                <li class="ms-3"><a class="fg-2" href="#" aria-label="Facebook"><svg class="bi" width="24" height="24">
-                            <use href="#facebook"></use>
-                        </svg></a></li>
-            </ul>
-        </footer>
+        </div>
     </div>
+    </div>
+    </div>
+    </template>
 
-    <!---------------------------------------------->
-    <!-- Your own JavaScript functions go here    -->
-    <!---------------------------------------------->
+</main>
 
-    <!-- Link to scripts of your own -->
-    <script type="module" src="./src/main.js"></script>
-    <script type="module" src="./src/games.js"></script>
+<div class="container">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+        <div class="md:col-4 d-flex align-items-center"><a href="/"
+                class="mb-3 me-2 md:mb-0 fg-2 text-decoration-none lh-1" aria-label="Bootstrap"><svg class="bi"
+                    width="30" height="24" aria-hidden="true">
+                    <use href="#bootstrap"></use>
+                </svg></a><span class="mb-3 md:mb-0 fg-2">© 2026 Company, Inc</span></div>
+        <ul class="nav md:col-4 justify-content-end list-unstyled d-flex">
+            <li class="ms-3"><a class="fg-2" href="#" aria-label="Instagram"><svg class="bi" width="24" height="24"
+                        aria-hidden="true">
+                        <use href="#instagram"></use>
+                    </svg></a></li>
+            <li class="ms-3"><a class="fg-2" href="#" aria-label="Facebook"><svg class="bi" width="24" height="24">
+                        <use href="#facebook"></use>
+                    </svg></a></li>
+        </ul>
+    </footer>
+</div>
+
+<!---------------------------------------------->
+<!-- Your own JavaScript functions go here    -->
+<!---------------------------------------------->
+
+<!-- Link to scripts of your own -->
+<script type="module" src="./src/main.js"></script>
+<script type="module" src="./src/games.js"></script>
 
 
 </body>
