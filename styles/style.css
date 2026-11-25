@@ -57,12 +57,23 @@
     background-size: contain;
 }
 
+#HungerBackground {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 16px;
+    background-color: #F3E1AD;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+}
+
 #BarFrame {
     background-color: black;
     aspect-ratio: 20/2;
-    margin-left: 10%;
     padding: 3px;
-    width: 50%;
+    flex-grow: 5;
+    margin-right: 10px;
 }
 
 .flipped {
@@ -70,11 +81,23 @@
 }
 
 #BarLabel {
+    display: flex;
     height: 50px;
-    margin-left: 10%;
     padding: 3px;
-    width: 15%;
+    justify-content: center;
     text-align: bottom;
+    flex-grow: 1;
+}
+
+#BarLabel b {
+    align-content: center;
+    font-size: 24px;
+}
+
+@media screen and (min-width: 992px) and (max-width: 1600px) {
+    #BarLabel b {
+        font-size: 30px;
+    }
 }
 
 /* Phsh Age Card */
@@ -95,7 +118,7 @@
     font-size: 20px;
     font-weight: bold;
     margin-bottom: 8px;
-    color: var(--primary);
+    color: var(--background);
 }
 
 /* Live age timer */
@@ -104,14 +127,14 @@
     font-weight: bold;
     white-space: nowrap;
     margin-bottom: 5px;
-    color: var(--primary);
+    color: var(--background);
 }
 
 /* Age description */
 .fish-age-card p {
     margin: 0;
     font-size: 14px;
-    color: var(--primary);
+    color: var(--background);
 }
 
 #fish {

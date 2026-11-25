@@ -6,8 +6,6 @@ import { db, auth } from "./firebase.js";
 import { signOut, onAuthStateChanged } from "firebase/auth";
 import { Fish } from "./fish.js";
 
-import "bootstrap-icons/font/bootstrap-icons.css";
-
 // Tie the fish on the page to the user's first fish in Firestore
 
 
@@ -15,27 +13,11 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 
 
 onAuthStateChanged(auth, async (user) => {
-
-  if (!user) return;
-
-  // Display the user's name
-  const heading = document.getElementById("welcome-heading");
-
-  if (heading) {
-    const username = user.displayName || user.email.split("@")[0];
-    heading.textContent = `Hello, ${username}!`;
-  }
-
-  // Load the user's fish
   const fishEl = document.getElementById("fish");
-
-  if (fishEl) {
-    const [myFish] = await Fish.loadOrCreate(user.uid);
-    myFish.listen(() => myFish.applyTo(fishEl));
-  }
-
+  if (!user || !fishEl) return;
+  const [myFish] = await Fish.loadOrCreate(user.uid);
+  myFish.listen(() => myFish.applyTo(fishEl));
 });
-
 import {
   collection,
   doc,
@@ -102,20 +84,20 @@ const prevPosX = PosX
 const prevPosY = PosY
 PosX = getRandomInt(0, 92)
 PosY = getRandomInt(0, 92)
-// if (PosX < prevPosX) {
-//   if (fishDirection == "Right") {
-//     fishDirection = "Left"
-//     document.getElementById("fish").classList.toggle('flipped');
-//     console.log("left");
-//   }
-// }
-// else {
-//   if (fishDirection == "Left") {
-//     fishDirection = "Right"
-//     document.getElementById("fish").classList.toggle('flipped');
-//     console.log("right");
-//   }
-// }
+if (PosX < prevPosX) {
+  if (fishDirection == "Right") {
+    fishDirection = "Left"
+    document.getElementById("fish").classList.toggle('flipped');
+    console.log("left");
+  }
+}
+else {
+  if (fishDirection == "Left") {
+    fishDirection = "Right"
+    document.getElementById("fish").classList.toggle('flipped');
+    console.log("right");
+  }
+}
 document.getElementById("fish").animate(
   [
     { // from parameters
