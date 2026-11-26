@@ -234,10 +234,9 @@ async function completeQuest() {
     if (loadedQuests != "No Quest") {
         globalThis.questArray = []
         loadedQuests.forEach((quest) => {
+            let questData = quest
             if (quest.id == "quest_1" && quest.status != "Complete") {
-                let questData = quest
                 questData.status = "Complete"
-                questArray.push(questData)
 
                 let expiresAt = UserData.HungerExpiresAt
                 let FoodAmount = (48 * 60 * 60 * 1000);
@@ -247,8 +246,11 @@ async function completeQuest() {
                 HungerData = {
                     HungerAssignedAt: UserData.HungerAssignedAt,
                     HungerExpiresAt: expiresAt,
-                    assignedQuests: questArray
                 };
+            };
+            questArray.push(quest)
+            HungerData = {
+                assignedQuests: questArray
             };
         })
         await setDoc(userRef, HungerData, { merge: true });
