@@ -72,13 +72,22 @@
             <h2 id="FishAge">Loading...</h2>
             <p>Your little buddy's age</p>
         </div>
+
         <div class="tank">
             <div id="fish"></div>
         </div>
-        <div id="BarLabel">Hunger Bar</div>
-        <div id="BarFrame">
-            <div id="HungerBar"></div>
+
+        <div class="container">
+            <div id="HungerBackground">
+                <div id="BarLabel">
+                    <b>Hunger Bar:</b>
+                </div>
+                <div id="BarFrame">
+                    <div id="HungerBar"></div>
+                </div>
+            </div>
         </div>
+
 
         <!--- Quest section --->
 
@@ -142,6 +151,7 @@
             <!-- Link to scripts of your own -->
             <script type="module" src="./src/main.js"></script>
             <script type="module" src="./src/quests.js"></script>
+            <script src="./src/accessibility.js"></script>
 
 </body>
 
