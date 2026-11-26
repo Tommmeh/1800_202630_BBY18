@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Phishing Please | Phsh Game</title>
+    <link rel="icon" type="image/png" href="./images/phshing-logo.png">
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+
+<body class="bg-light">
+
+    <header class="bg-dark text-white py-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <h1 class="h4 mb-0">Phsh Game</h1>
+        </div>
+    </header>
+
+    <main class="container py-5 text-center thisorthat-card">
+        <h2>Phishing Please</h2>
+        <p class="text-muted">You're the mail inspector. Keep the real emails. Report the phish. Be quick, the clock gets shorter.</p>
+
+        <div class="d-flex justify-content-center gap-4">
+            <p id="score-text" class="fw-bold">Score: 0 / 10</p>
+            <p id="timer-text" class="fw-bold text-danger" hidden>Time: 15</p>
+        </div>
+
+        <!-- The email on screen -->
+        <div id="email-card" class="card text-start my-4 mx-auto" style="max-width: 600px;" hidden>
+            <div class="card-body">
+                <p class="mb-1"><strong>From:</strong> <span id="email-from"></span></p>
+                <p class="mb-3"><strong>Subject:</strong> <span id="email-subject"></span></p>
+                <p id="email-body" class="mb-0"></p>
+            </div>
+        </div>
+
+        <!-- Keep / Report -->
+        <div id="choice-btns" class="d-flex gap-3 justify-content-center" hidden>
+            <button id="keep-btn" class="btn btn-success px-4">Keep</button>
+            <button id="report-btn" class="btn btn-danger px-4">Report</button>
+        </div>
+
+        <p id="feedback" class="fs-5 mt-3" aria-live="polite"></p>
+
+        <button id="next-btn" class="btn btn-primary" hidden>Next</button>
+        <button id="start-btn" class="btn btn-primary">Start</button>
+    </main>
+    <div class="text-center mt-3">
+        <a href="gameslist.html" class="quiz-back-link">
+            ← Back to Games
+        </a>
+    </div>
+
+    <script type="module" src="./src/main.js"></script>
+    <script type="module" src="./src/phishingplease.js"></script>
+</body>
+
+</html>

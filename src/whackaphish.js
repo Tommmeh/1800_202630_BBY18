@@ -1,14 +1,3 @@
-import { db, auth } from "./firebase.js";
-
-import {
-  doc,
-  getDoc,
-  setDoc
-} from "firebase/firestore";
-
-import { onAuthStateChanged } from "firebase/auth";
-
-
 // questions for when you hit a hook (same idea as thisorthat.js)
 const rounds = [
   {
@@ -76,6 +65,15 @@ function clearHoles() {
   currentHole = null;
 }
 
+
+let speed = 1500;
+const minSpeed = 500;
+
+function restartTimer() {
+  clearInterval(gameTimer);
+  gameTimer = setInterval(showSomething, speed);
+}
+
 // pop up a fish or a hook in a random hole
 function showSomething() {
   clearHoles();
@@ -107,6 +105,8 @@ holes.forEach((hole) => {
 
     if (currentThing === "fish") {
       score++;
+       speed = Math.max(minSpeed, speed - 100);
+       restartTimer();
       updateScore();
       feedback.textContent = "Got one!";
       feedback.className = "fs-5 text-success";
@@ -175,117 +175,25 @@ rightBtn.addEventListener("click", () => checkAnswer("right"));
 continueBtn.addEventListener("click", () => {
   questionBox.hidden = true;
   feedback.textContent = "";
-  gameTimer = setInterval(showSomething, 1500);
+  restartTimer();
 });
 
 // start or play again
 startBtn.addEventListener("click", () => {
   score = 0;
+  speed = 1500;
   updateScore();
   feedback.textContent = "";
   startBtn.hidden = true;
   questionBox.hidden = true;
-  clearInterval(gameTimer);
-  gameTimer = setInterval(showSomething, 1500);
+  restartTimer();
 });
 
-// Get or assign quests for this user
-async function getUserQuests(user) {
-  const userRef = doc(db, "users", user.uid);
-  const userSnapshot = await getDoc(userRef);
-
-  const now = Date.now();
-
-  // Check if this user already has active quests
-  if (userSnapshot.exists()) {
-    const userData = userSnapshot.data();
-
-    if (
-      userData.assignedQuests &&
-      userData.questsExpiresAt &&
-      userData.questsExpiresAt > now
-    ) {
-      console.log("Loading saved quests");
-      return userData.assignedQuests;
-    }
-  }
-  // Save quest information to the user's existing document
-  await setDoc(userRef, questData, { merge: true });
-  return ("No Quest")
-}
-
-async function getUserHunger(user) {
-  const userRef = doc(db, "users", user.uid);
-  const userSnapshot = await getDoc(userRef);
-
-  const now = Date.now();
-
-  // Check if this user already has hunger
-  if (userSnapshot.exists()) {
-    const userData = userSnapshot.data();
-
-    if (
-      userData.HungerExpiresAt &&
-      userData.HungerExpiresAt > now
-    ) {
-      console.log("Loading saved hunger");
-      return userData;
-    }
-  }
-}
-
-async function winGame() {
+function winGame() {
   clearInterval(gameTimer);
   clearHoles();
   feedback.textContent = `You win! You caught ${winScore} fish 🎉`;
   feedback.className = "fs-5 text-success";
   startBtn.textContent = "Play again";
   startBtn.hidden = false;
-  if (loadedQuests != "No Quest") {
-    globalThis.questArray = []
-    loadedQuests.forEach((quest) => {
-      if (quest.id == "quest_2" && quest.status != "Complete") {
-        let questData = quest
-        questData.status = "Complete"
-        questArray.push(questData)
-
-        let expiresAt = UserData.HungerExpiresAt
-        let FoodAmount = (48 * 60 * 60 * 1000);
-
-        if (expiresAt + FoodAmount >= (Date.now() + (48 * 60 * 60 * 1000))) { expiresAt = Date.now() + (48 * 60 * 60 * 1000) }
-        else { expiresAt = expiresAt + FoodAmount }
-        HungerData = {
-          HungerAssignedAt: UserData.HungerAssignedAt,
-          HungerExpiresAt: expiresAt,
-          assignedQuests : questArray
-        };
-      };
-    })
-    await setDoc(userRef, HungerData, { merge: true });
-  }
 }
-
-
-// Load quests for the logged-in user
-async function loadQuests(user) {
-
-  globalThis.loadedQuests = await getUserQuests(user);
-  globalThis.userRef = doc(db, "users", user.uid);
-  globalThis.UserData = await getUserHunger(user)
-  globalThis.HungerData = UserData
-}
-
-
-// Wait until Firebase knows who is logged in
-onAuthStateChanged(auth, async (user) => {
-  if (!user) {
-    console.log("No user logged in. Quests not loaded.");
-    return;
-  }
-
-  try {
-    await loadQuests(user);
-  } catch (error) {
-    console.error("Error loading quests:", error);
-  }
-});
